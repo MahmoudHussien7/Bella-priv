@@ -1,10 +1,11 @@
 import React from "react";
 import Home from "./Pages/Home";
-import "@fortawesome/fontawesome-free/css/all.min.css";
+import Navbar from "./Components/Navbar";
 
 function App() {
   return (
     <div>
+      <Navbar />
       <Home />
     </div>
   );

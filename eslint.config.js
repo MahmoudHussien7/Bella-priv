@@ -24,6 +24,7 @@ export default [
       "react-refresh": reactRefresh,
     },
     rules: {
+      "react/prop-types": "off",
       "react/react-in-jsx-scope": "off",
       "no-unused-vars": ["error", { varsIgnorePattern: "React" }],
       ...js.configs.recommended.rules,
