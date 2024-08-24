@@ -13,13 +13,13 @@ const Register = () => {
   return (
     <div className="min-h-screen flex">
       {/* Left Side: Background Image */}
-      <div
+      {/* <div
         className="hidden lg:block w-1/2 bg-cover bg-center"
         style={{
           backgroundImage:
             "url('https://r4.wallpaperflare.com/wallpaper/582/443/760/white-design-room-sofa-wallpaper-22b1b2205de6ce5b0af8a2c5b0686922.jpg')",
         }}
-      />
+      /> */}
 
       {/* Right Side: Register Form */}
       <div className="flex flex-col justify-center items-center w-full lg:w-1/2 bg-gradient-to-b from-orange-200 to-slate-300">
