@@ -55,7 +55,7 @@ const Products = () => {
               {currentPosts.map((data, index) => (
                 <div
                   key={index}
-                  className="bg-white p-4 shadow-lg rounded-lg animate-fade transition-all duration-300 hover:scale-105  "
+                  className="bg-white p-4 shadow-lg rounded-lg animate-fadeIn transition-all duration-300 hover:scale-105  "
                 >
                   <div className="h-48 flex items-center justify-center ">
                     <p className="text-gray-700 text-lg font-semibold">
