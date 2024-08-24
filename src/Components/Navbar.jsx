@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { CiSearch } from "react-icons/ci";
 import { Link } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa"; // Hamburger and Close Icons
+import { FaBars, FaTimes } from "react-icons/fa";
+import { GoHorizontalRule } from "react-icons/go";
+import { PiLineVerticalLight } from "react-icons/pi";
 
 const Navbar = () => {
   const [navBg, setNavBg] = useState(false);
@@ -29,24 +31,31 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full top-0 z-50 transition-colors duration-500 h-20 ${
-        navBg ? "bg-white shadow-md text-black" : "bg-transparent"
+      className={`fixed w-full top-0 z-50 transition-colors duration-500 px-10 ${
+        navBg || location.pathname !== "/"
+          ? "bg-white text-black h-20"
+          : "bg-transparent text-white"
       }`}
     >
       <div className="container mx-auto flex justify-between items-center px-6">
         {/* Brand Section */}
         <div
           className={`text-3xl font-bold mt-4 ${
-            navBg ? "text-black" : "text-white"
+            navBg ? "text-hovermain" : null
           }`}
         >
-          <span>Bella</span>
+          <span>
+            <Link to="/" className="flex justify-center font-sans">
+              {" "}
+              Bella
+            </Link>
+          </span>
           <p
-            className={`text-sm font-light tracking-wide ${
-              navBg ? "text-black" : "text-white"
-            }`}
+            className={`text-sm font-light  ${navBg ? "text-hovermain" : null}`}
           >
-            LUXURY YOU DESERVE
+            <Link to="/" className="text-[0.7rem] font-extralight">
+              LUXURY YOU DESERVE
+            </Link>
           </p>
         </div>
 
@@ -54,67 +63,51 @@ const Navbar = () => {
         <div className="lg:hidden">
           <button
             onClick={toggleSidebar}
-            className={`text-3xl ${navBg ? "text-black" : "text-white"}`}
+            className={`text-3xl ${navBg ? "text-white" : "text-black"}`}
           >
             {sidebarOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>
 
         {/* Full Menu Links (Hidden on Small Screens) */}
-        <ul className="hidden lg:flex space-x-8 uppercase tracking-wide mt-5">
+        <ul className="hidden lg:flex space-x-8 uppercase tracking-wide mt-3">
           <li
-            className={`hover:text-hovermain cursor-pointer transition-all duration-200 ${
-              navBg ? "text-black" : "text-white"
-            }`}
+            className={`hover:text-hovermain cursor-pointer transition-all duration-200 text-[1rem] `}
           >
             <Link to="/">Home</Link>
           </li>
           <li
-            className={`hover:text-hovermain cursor-pointer transition-all duration-200 ${
-              navBg ? "text-black" : "text-white"
-            }`}
+            className={`hover:text-hovermain cursor-pointer transition-all duration-200 text-[1rem] `}
           >
             <Link to="/AboutUs">About Us</Link>
           </li>
           <li
-            className={`hover:text-hovermain cursor-pointer transition-all duration-200 ${
-              navBg ? "text-black" : "text-white"
-            }`}
+            className={`hover:text-hovermain cursor-pointer transition-all duration-200 text-[1rem]`}
           >
             <Link to="/Products">Collection</Link>
           </li>
           <li
-            className={`hover:text-hovermain cursor-pointer transition-all duration-200 ${
-              navBg ? "text-black" : "text-white"
-            }`}
+            className={`hover:text-hovermain cursor-pointer transition-all duration-200 text-[1rem] `}
           >
             <Link to="/contact">Contact Us</Link>
           </li>
         </ul>
 
         {/* Icons */}
-        <div className="hidden lg:flex space-x-4 items-center">
+        <div className="hidden lg:flex space-x-4 items-center mt-4">
           <div
-            className={`hover:text-hovermain cursor-pointer transition-all duration-200 ${
-              navBg ? "text-black" : "text-white"
-            }`}
+            className={`hover:text-hovermain cursor-pointer transition-all duration-200 `}
           >
-            <CiSearch className="size-10" />
+            <CiSearch className="size-6" />
           </div>
           <div
-            className={`hover:text-hovermain cursor-pointer transition-all duration-200 ${
-              navBg ? "text-black" : "text-white"
-            }`}
+            className={`hover:text-hovermain cursor-pointer transition-all duration-200 `}
           >
-            <HiOutlineShoppingBag className="size-8" />
+            <HiOutlineShoppingBag className="size-6" />
           </div>
-          <span className={`mr-5 ${navBg ? "text-black" : "text-white"}`}>
-            |
-          </span>
+          <PiLineVerticalLight className="size-6" />
           <div
-            className={`hover:text-hovermain cursor-pointer transition-all duration-200 ${
-              navBg ? "text-black" : "text-white"
-            }`}
+            className={`hover:text-hovermain cursor-pointer transition-all duration-200 text-[1rem]`}
           >
             <Link to="/login" className="mr-5">
               LOGIN
