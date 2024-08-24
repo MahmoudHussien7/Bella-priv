@@ -1,35 +1,23 @@
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { Link } from "react-router-dom";
+import Navbar from "../Components/Navbar";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [fullName, setFullName] = useState("");
-  // const [error, setError] = useState("");
-  // const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex">
-      {/* Left Side: Background Image */}
-      <div
-        className="hidden lg:block w-1/2 bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "url('https://r4.wallpaperflare.com/wallpaper/582/443/760/white-design-room-sofa-wallpaper-22b1b2205de6ce5b0af8a2c5b0686922.jpg')",
-        }}
-      />
-
-      {/* Right Side: Register Form */}
-      <div className="flex flex-col justify-center items-center w-full lg:w-1/2 bg-gradient-to-b from-orange-200 to-slate-300">
-        <div className="bg-white shadow-md rounded-lg px-12 py-10 max-w-lg w-full">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-700">Create Account</h1>
-            <p className="text-sm text-gray-500">Sign up to get started</p>
+    <>
+      <Navbar />
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="w-full max-w-md px-8 py-10 bg-white rounded-lg shadow-lg">
+          <div className="flex justify-center items-center gap-3 mb-6">
+            <h1 className="text-3xl font-semibold text-gray-700">Sign up </h1>
           </div>
 
-          <form className="space-y-6 mt-8">
+          <form className="space-y-6">
             {/* Full Name Input */}
             <div>
               <label
@@ -45,7 +33,9 @@ const Register = () => {
                 required
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-amber-300 focus:border-amber-300"
+                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-hovermain focus:ring-1 focus:ring-hovermain focus-visible:outline-none transition-colors"
+                aria-label="Full Name"
+                aria-required="true"
               />
             </div>
 
@@ -64,7 +54,9 @@ const Register = () => {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-amber-300 focus:border-amber-300"
+                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-hovermain focus:ring-1 focus:ring-hovermain focus-visible:outline-none transition-colors"
+                aria-label="Email Address"
+                aria-required="true"
               />
             </div>
 
@@ -83,7 +75,9 @@ const Register = () => {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-amber-300 focus:border-amber-300"
+                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-hovermain focus:ring-1 focus:ring-hovermain focus-visible:outline-none transition-colors"
+                aria-label="Password"
+                aria-required="true"
               />
             </div>
 
@@ -102,7 +96,9 @@ const Register = () => {
                 required
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-amber-300 focus:border-amber-300"
+                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-hovermain focus:ring-1 focus:ring-hovermain focus-visible:outline-none transition-colors"
+                aria-label="Confirm Password"
+                aria-required="true"
               />
             </div>
 
@@ -110,7 +106,7 @@ const Register = () => {
             <div>
               <button
                 type="submit"
-                className="w-full py-2 px-4 bg-hovermain text-white font-semibold rounded-md shadow-md hover:bg-orange-200 transition-colors"
+                className="w-full py-2 px-4 bg-hovermain text-white font-semibold rounded-md shadow-md hover:bg-hovermain-light transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hovermain"
               >
                 Sign Up
               </button>
@@ -121,17 +117,17 @@ const Register = () => {
           <div className="text-center mt-6">
             <p className="text-sm text-gray-500">
               Already have an account?{" "}
-              <a
-                href="/login"
-                className="text-hovermain hover:text-orange-200 transition-colors"
+              <Link
+                to="/login"
+                className="ml-1 text-hovermain hover:text-hovermain-light transition-colors"
               >
                 Log in
-              </a>
+              </Link>
             </p>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

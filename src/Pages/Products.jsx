@@ -6,7 +6,7 @@ const Products = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(20); // Fixed posts per page
+  const [postsPerPage] = useState(9); // Fixed posts per page
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -35,15 +35,17 @@ const Products = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="bg-slate-600">
+    <div className="bg-stone-50">
       <Navbar />
-      <div className="pt-28">
-        <div className="bg-hovermain flex justify-center items-center h-48">
-          <h1 className="text-4xl md:text-5xl font-semibold text-gray-700">
-            Products
-          </h1>
+
+      <div className=" mt-24 bg-[#f4f3ef] ">
+        <div className="bg-product flex justify-center items-center h-72 ">
+          <h2 className="text-5xl  md:text-5xl text-gray-700 p-5 font-bold">
+            Collection
+          </h2>
         </div>
       </div>
+
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -53,7 +55,7 @@ const Products = () => {
               {currentPosts.map((data, index) => (
                 <div
                   key={index}
-                  className="bg-white p-4 shadow-lg rounded-lg animate-fadeIn transition-all duration-300 hover:scale-105  "
+                  className="bg-white p-4 shadow-lg rounded-lg animate-fade transition-all duration-300 hover:scale-105  "
                 >
                   <div className="h-48 flex items-center justify-center ">
                     <p className="text-gray-700 text-lg font-semibold">
@@ -66,7 +68,6 @@ const Products = () => {
           </div>
 
           <Pagination
-            className="mb-10"
             postsPerPage={postsPerPage}
             totalPosts={posts.length}
             paginate={paginate}

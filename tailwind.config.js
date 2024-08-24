@@ -5,6 +5,8 @@ export default {
     extend: {
       colors: {
         hovermain: "#C3B8A5",
+        textColor: "#A6A6A6",
+        titleColor: "#333333",
       },
       keyframes: {
         wiggle: {
