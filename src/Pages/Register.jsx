@@ -9,12 +9,7 @@ const Register = () => {
   const [fullName, setFullName] = useState("");
 
   return (
-    <>
-      <Navbar />
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="w-full max-w-md px-8 py-10 bg-white rounded-lg shadow-lg">
-          <div className="flex justify-center items-center gap-3 mb-6">
-            <h1 className="text-3xl font-semibold text-gray-700">Sign up </h1>
+
           </div>
 
           <form className="space-y-6">
