@@ -1,5 +1,7 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 
+// eslint-disable-next-line react/prop-types
 const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) => {
   const pageNumbers = [];
 
@@ -13,9 +15,9 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) => {
         {pageNumbers.map((number) => (
           <li
             key={number}
-            className={`mx-1 ${
-              currentPage === number ? "bg-blue-500 text-white" : "bg-gray-200"
-            } px-3 py-1 rounded`}
+            className={`mx-1  ${
+              currentPage === number ? " text-hovermain" : "bg-transparent"
+            } px-3 py-1 rounded my-5`}
           >
             <button onClick={() => paginate(number)}>{number}</button>
           </li>

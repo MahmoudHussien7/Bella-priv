@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../Components/Navbar";
-import { FaUserAlt } from "react-icons/fa";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -10,11 +9,11 @@ const Login = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 animate-fadeIn">
         <div className="w-full max-w-md px-8 py-10 bg-white rounded-lg shadow-lg">
           <div className="flex justify-center items-center gap-3 mb-6">
-            <FaUserAlt className="text-hovermain" size={30} />
-            <h1 className="text-3xl font-semibold text-gray-700">Login</h1>
+            {/* <FaUserAlt className="text-[#CC9966]" size={30} /> */}
+            <h1 className="text-3xl font-semibold text-gray-700 ">Login </h1>
           </div>
 
           <form className="space-y-6">
@@ -64,7 +63,7 @@ const Login = () => {
             <div>
               <button
                 type="submit"
-                className="w-full py-2 px-4 bg-hovermain text-white font-semibold rounded-md shadow-md hover:bg-hovermain-light transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hovermain"
+                className="w-full py-2 px-4 bg-[#B48E61] text-white font-semibold rounded-md shadow-md hover:bg-hovermain-light transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hovermain"
               >
                 Login
               </button>
