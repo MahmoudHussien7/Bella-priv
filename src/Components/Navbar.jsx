@@ -3,8 +3,8 @@ import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { CiSearch } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { GoHorizontalRule } from "react-icons/go";
 import { PiLineVerticalLight } from "react-icons/pi";
+import { CiHeart } from "react-icons/ci";
 
 const Navbar = () => {
   const [navBg, setNavBg] = useState(false);
@@ -32,7 +32,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed w-full top-0 z-50 transition-colors duration-500 px-10 ${
-        navBg || location.pathname !== "/"
+        navBg || (location.pathname !== "/" && location.pathname !== "/AboutUs")
           ? "bg-white text-black h-20"
           : "bg-transparent text-white"
       }`}
@@ -41,7 +41,7 @@ const Navbar = () => {
         {/* Brand Section */}
         <div
           className={`text-3xl font-bold mt-4 ${
-            navBg ? "text-hovermain" : null
+            navBg || location.pathname !== "/Login" ? "text-hovermain" : null
           }`}
         >
           <span>
@@ -63,7 +63,7 @@ const Navbar = () => {
         <div className="lg:hidden">
           <button
             onClick={toggleSidebar}
-            className={`text-3xl ${navBg ? "text-white" : "text-black"}`}
+            className={`text-3xl ${navBg ? "text-black" : "text-white"}`}
           >
             {sidebarOpen ? <FaTimes /> : <FaBars />}
           </button>
@@ -105,6 +105,11 @@ const Navbar = () => {
           >
             <HiOutlineShoppingBag className="size-6" />
           </div>
+          <div
+            className={`hover:text-hovermain cursor-pointer transition-all duration-200 `}
+          >
+            <CiHeart className="size-6" />
+          </div>
           <PiLineVerticalLight className="size-6" />
           <div
             className={`hover:text-hovermain cursor-pointer transition-all duration-200 text-[1rem]`}
@@ -118,7 +123,7 @@ const Navbar = () => {
 
       {/* Sidebar (Visible on Small Screens) */}
       <div
-        className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform ${
+        className={`fixed top-0 left-0 h-full w-64 bg-white text-black shadow-lg z-50 transform ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 lg:hidden`}
       >
