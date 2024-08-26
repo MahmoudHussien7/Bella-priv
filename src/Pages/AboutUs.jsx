@@ -8,7 +8,6 @@ import aboutImg2 from "../assets/Images/about2.jpg";
 
 const AboutUs = () => {
   const smallImageRef = useRef(null);
-
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop =
