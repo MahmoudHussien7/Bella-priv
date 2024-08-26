@@ -22,6 +22,7 @@ root.render(
         <Route path="/Products" element={<Products />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/Register" element={<Register />} />
+        <Route path="/contactUs" element={<Register />} />
         <Route path="*" element={<h1>404 - Page Not Found</h1>} />
       </Routes>
     </Router>

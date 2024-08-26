@@ -2,7 +2,11 @@
 import React from "react";
 
 const AboutUs = () => {
-  return <div className="flex justify-center">ABout US♥</div>;
+  return (
+    <div className="flex justify-center">
+      ABout US♥
+    </div>
+  );
 };
 
 export default AboutUs;
