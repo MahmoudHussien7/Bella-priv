@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import { Link } from "react-router-dom";
 
 function Category() {
@@ -32,6 +33,7 @@ function Category() {
           >
             <div
               className="absolute inset-0 transition-transform duration-300 group-hover:scale-110 bg-cover bg-center"
+
               style={{ backgroundImage: `url(${c.image})` }}
             ></div>
             <div className="absolute inset-0 opacity-50 group-hover:opacity-40 transition-opacity duration-300">
