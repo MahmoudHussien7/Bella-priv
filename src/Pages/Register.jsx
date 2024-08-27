@@ -16,12 +16,10 @@ const Register = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 mt-10">
-        <div className="w-full max-w-md px-8 py-10 bg-white rounded-lg shadow-lg">
+      <div className="min-h-screen flex items-center justify-center bg-gray-50  overflow-hidden">
+        <div className="w-full max-w-md px-8 py-10 bg-white rounded-lg shadow-lg overflow-hidden">
           <div className="flex justify-center items-center gap-3 mb-6">
-            <h1 className="text-3xl font-semibold text-gray-700">
-              Create Account
-            </h1>
+            <h1 className="text-3xl font-semibold text-gray-700">Sign up </h1>
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -158,7 +156,7 @@ const Register = () => {
                 to="/login"
                 className="ml-1 text-hovermain hover:text-hovermain font-semibold transition-colors"
               >
-                Log in
+                Sign in
               </Link>
             </p>
           </div>

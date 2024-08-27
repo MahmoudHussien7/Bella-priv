@@ -19,7 +19,7 @@ const Login = () => {
       <div className="min-h-screen flex items-center justify-center bg-gray-50  animate-fadeIn">
         <div className="w-full max-w-md px-8 py-10 bg-white rounded-lg shadow-lg">
           <div className="flex justify-center items-center gap-3 mb-6">
-            <h1 className="text-3xl font-semibold text-gray-700 ">Login</h1>
+            <h1 className="text-3xl font-semibold text-gray-700 ">Sign in</h1>
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -88,7 +88,6 @@ const Login = () => {
             <div>
               <button
                 type="submit"
-                className="w-full py-2 px-4 bg-[#B48E61] text-white font-semibold rounded-md shadow-md hover:bg-hovermain-light transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hovermain"
                 className="w-full py-2 px-4 bg-[#B48E61] text-white font-semibold rounded-md shadow-md hover:bg-hovermain-light transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hovermain"
               >
                 Login

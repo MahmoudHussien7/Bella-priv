@@ -11,6 +11,8 @@ import AboutUs from "./Pages/AboutUs";
 import Products from "./Pages/Products";
 import ProductDetails from "./Pages/ProductDetails";
 import Shop from "./Pages/Shop";
+import Cart from "./Pages/Cart";
+import Checkout from "./Pages/Checkout";
 
 const root = createRoot(document.getElementById("root"));
 root.render(
@@ -25,6 +27,9 @@ root.render(
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/contactUs" element={<Register />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
+
         <Route path="*" element={<h1>404 - Page Not Found</h1>} />
       </Routes>
     </Router>

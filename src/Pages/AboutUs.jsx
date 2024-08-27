@@ -5,6 +5,7 @@ import AboutHero from "../assets/Images/cas-1.jpg";
 import SofaImage from "../assets/Images/Hero.jpg";
 import aboutImg1 from "../assets/Images/about1.jpg";
 import aboutImg2 from "../assets/Images/about2.jpg";
+import Footer from "../Components/footer";
 
 const AboutUs = () => {
   const smallImageRef = useRef(null);
@@ -69,7 +70,6 @@ const AboutUs = () => {
           />
         </div>
       </div>
-
       <div className=" grid grid-cols-6 md:grid-cols-4  items-center justify-center md:px-[7%] mb-[5%]">
         <div className="col-span-6 md:col-span-2 relative  mr-[15%]">
           <img src={aboutImg1} alt="aboutUs" className="w-full md:w-[85%]" />
@@ -94,7 +94,8 @@ const AboutUs = () => {
             </p>
           </div>
         </div>
-      </div>
+      </div>{" "}
+      <Footer />
     </div>
   );
 };

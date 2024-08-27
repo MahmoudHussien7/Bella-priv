@@ -89,7 +89,9 @@ const Navbar = () => {
             <CiSearch className="size-6" />
           </div>
           <div className="hover:text-hovermain cursor-pointer transition-all duration-200">
-            <HiOutlineShoppingBag className="size-6" />
+            <Link to="/cart">
+              <HiOutlineShoppingBag className="size-6" />
+            </Link>
           </div>
           <div className="hover:text-hovermain cursor-pointer transition-all duration-200">
             <CiHeart className="size-6" />
