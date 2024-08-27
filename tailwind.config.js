@@ -7,7 +7,7 @@ export default {
         montserrat: ["Montserrat", "Sans-serif"],
       },
       colors: {
-        hovermain: "#B1A080",
+        hovermain: "#c0ae98",
         textColor: "#A6A6A6",
         titleColor: "#333333",
       },

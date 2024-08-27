@@ -11,7 +11,7 @@ function Card({ id, title, price, imageUrl, className }) {
         <img
           src={imageUrl}
           alt={title}
-          className="w-full min-h-[15rem] lg:min-h-[20rem] max-h-[25rem] object-cover"
+          className="w-full min-h-[15rem] lg:min-h-[20rem] max-h-[20rem] object-cover"
         />
         <div
           className="bg-titleColor text-white grid grid-cols-4 text-center w-full  

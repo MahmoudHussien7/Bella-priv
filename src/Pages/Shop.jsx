@@ -46,10 +46,10 @@ const Shop = () => {
 
     switch (sortOption) {
       case "Sort by Popularity":
-        // Add logic 
+        // Add logic
         break;
       case "Sort by Latest":
-        // Add logic 
+        // Add logic
         break;
       case "Sort by Price: ↑":
         filtered = filtered.sort((a, b) => a.price - b.price);
@@ -69,7 +69,6 @@ const Shop = () => {
       <Banner />
 
       <div className="flex flex-col lg:flex-row container mx-auto px-4 md:px-16 lg:px-24 py-8">
-
         {/* Main Content Area */}
         <div className="flex-grow lg:pl-8 w-6/12">
           <div className="flex justify-between items-center mb-4">

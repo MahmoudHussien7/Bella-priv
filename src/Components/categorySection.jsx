@@ -15,7 +15,7 @@ function CategorySection() {
         <div className="flex justify-between items-center px-[6%] py-[5%] text-white">
           <div className="flex items-center space-x-4">
             <img src="/triangle.svg" alt="Icon" className="w-8 h-8" />
-            <h2 className="text-white text-[1.8rem] md:text-[2rem]  leading-4 font-montserrat">
+            <h2 className="text-white text-[1.3rem] p-5  md:text-[2rem] font-montserrat">
               Choose A Category
             </h2>
           </div>

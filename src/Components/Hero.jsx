@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
-import HeroImage from "../assets/Images/Hero.jpg";
+import HeroImage from "../assets/Images/404-bg.jpg";
 
 const Hero = () => {
   return (

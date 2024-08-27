@@ -8,5 +8,10 @@
     "id": 2,
     "name": "DECORATION",
     "image": "src/assets/Images/Decoration.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Bedroom",
+    "image": "src/assets/Images/BedRoom.jpg"
   }
 ]
