@@ -1,24 +1,28 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../Components/Navbar";
-import { FaUserAlt } from "react-icons/fa";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
 
   return (
     <>
       <Navbar />
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 ">
         <div className="w-full max-w-md px-8 py-10 bg-white rounded-lg shadow-lg">
           <div className="flex justify-center items-center gap-3 mb-6">
-            <FaUserAlt className="text-hovermain" size={30} />
-            <h1 className="text-3xl font-semibold text-gray-700">Login</h1>
+            <h1 className="text-3xl font-semibold text-gray-700 ">Login</h1>
           </div>
 
-          <form className="space-y-6">
-            {/* Email Input */}
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div>
               <label
                 htmlFor="email"
@@ -30,16 +34,26 @@ const Login = () => {
                 id="email"
                 name="email"
                 type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-hovermain focus:ring-1 focus:ring-hovermain focus-visible:outline-none transition-colors"
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,
+                    message: "Invalid email address",
+                  },
+                })}
+                className={`mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-hovermain focus:ring-1 focus:ring-hovermain focus-visible:outline-none transition-colors ${
+                  errors.email ? "border-red-500" : ""
+                }`}
                 aria-label="Email Address"
                 aria-required="true"
               />
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.email.message}
+                </p>
+              )}
             </div>
 
-            {/* Password Input */}
             <div>
               <label
                 htmlFor="password"
@@ -51,33 +65,42 @@ const Login = () => {
                 id="password"
                 name="password"
                 type="password"
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-hovermain focus:ring-1 focus:ring-hovermain focus-visible:outline-none transition-colors"
+                {...register("password", {
+                  required: "Password is required",
+                  minLength: {
+                    value: 6,
+                    message: "Password must be at least 6 characters long",
+                  },
+                })}
+                className={`mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-hovermain focus:ring-1 focus:ring-hovermain focus-visible:outline-none transition-colors ${
+                  errors.password ? "border-red-500" : ""
+                }`}
                 aria-label="Password"
                 aria-required="true"
               />
+              {errors.password && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.password.message}
+                </p>
+              )}
             </div>
 
-            {/* Login Button */}
             <div>
               <button
                 type="submit"
-                className="w-full py-2 px-4 bg-hovermain text-white font-semibold rounded-md shadow-md hover:bg-hovermain-light transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hovermain"
+                className="w-full py-2 px-4 bg-[#B48E61] text-white font-semibold rounded-md shadow-md hover:bg-hovermain-light transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hovermain"
               >
                 Login
               </button>
             </div>
           </form>
 
-          {/* Extra Links */}
           <div className="text-center mt-6">
             <p className="text-sm text-gray-500">
               Don’t have an account?
               <Link
                 to="/Register"
-                className="ml-1 text-hovermain hover:text-hovermain-light transition-colors"
+                className="ml-1 text-hovermain hover:text-hovermain font-montserrat transition-colors"
               >
                 Sign up
               </Link>
