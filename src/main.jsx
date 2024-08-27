@@ -10,6 +10,7 @@ import Register from "./Pages/Register";
 import AboutUs from "./Pages/AboutUs";
 import Products from "./Pages/Products";
 import ProductDetails from "./Pages/ProductDetails";
+import Shop from "./Pages/Shop";
 
 const root = createRoot(document.getElementById("root"));
 root.render(
@@ -20,6 +21,7 @@ root.render(
         <Route path="/Login" element={<Login />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/Products" element={<Products />} />
+        <Route path="/shop" element={<Shop />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/contactUs" element={<Register />} />
