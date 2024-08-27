@@ -8,7 +8,7 @@ const Products = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(3);
+  const [postsPerPage] = useState(9);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -26,16 +26,14 @@ const Products = () => {
     fetchProducts();
   }, []);
 
-  // Get current posts
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
-  // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="bg-stone-50">
+    <div className="bg-stone-50 min-h-screen">
       <Navbar />
 
       <div className="mt-16 bg-[#f4f3ef]">
@@ -49,10 +47,10 @@ const Products = () => {
       {loading ? (
         <p className="text-center mt-16">Loading...</p>
       ) : (
-        <div className="mt-16 flex flex-col lg:flex-row">
-          {/* Sidebar Container */}
-          <div className="w-auto lg:w-1/4 p-4 bg-[#F4F3EF] shadow-sm rounded-sm mb-2 lg:mb-0 animate-fadeIn">
-            <div className="border border-t-0 border-x-0 border-b border-gray-300 mb-4 pb-2">
+        <div className="mt-16 flex flex-col lg:flex-row  ">
+          <div className="w-auto lg:w-1/6 p-4 bg-[#F4F3EF] shadow-sm rounded-sm mb-6 lg:mb-0">
+            {/* Sidebar Content */}
+            <div className="border-b border-gray-300 pb-4 mb-4">
               <div tabIndex={0} className="collapse collapse-plus">
                 <div className="collapse-title text-xl font-medium text-gray-700">
                   Bedrooms
@@ -61,7 +59,7 @@ const Products = () => {
                   <p>
                     <Link
                       to="/products/bedrooms/beds"
-                      className=" hover:underline"
+                      className="hover:underline"
                     >
                       - Beds
                     </Link>
@@ -69,7 +67,7 @@ const Products = () => {
                   <p>
                     <Link
                       to="/products/bedrooms/wardrobe"
-                      className=" hover:underline"
+                      className="hover:underline"
                     >
                       - Wardrobe
                     </Link>
@@ -77,7 +75,7 @@ const Products = () => {
                   <p>
                     <Link
                       to="/products/bedrooms/nightstand"
-                      className=" hover:underline"
+                      className="hover:underline"
                     >
                       - Nightstand
                     </Link>
@@ -85,7 +83,7 @@ const Products = () => {
                 </div>
               </div>
             </div>
-            <div className="border border-t-0 border-x-0 border-b border-gray-300 mb-4 pb-2">
+            <div className="border-b border-gray-300 pb-4 mb-4">
               <div tabIndex={0} className="collapse collapse-plus">
                 <div className="collapse-title text-xl font-medium text-gray-700">
                   Living Rooms
@@ -94,7 +92,7 @@ const Products = () => {
                   <p>
                     <Link
                       to="/products/living-rooms/sofa"
-                      className=" hover:underline"
+                      className="hover:underline"
                     >
                       - Sofa
                     </Link>
@@ -102,7 +100,7 @@ const Products = () => {
                   <p>
                     <Link
                       to="/products/living-rooms/tables"
-                      className=" hover:underline"
+                      className="hover:underline"
                     >
                       - Tables
                     </Link>
@@ -110,7 +108,7 @@ const Products = () => {
                   <p>
                     <Link
                       to="/products/living-rooms/chairs"
-                      className=" hover:underline"
+                      className="hover:underline"
                     >
                       - Chairs
                     </Link>
@@ -118,7 +116,7 @@ const Products = () => {
                 </div>
               </div>
             </div>
-            <div className="border-t-0 border-x-0 border-gray-300">
+            <div className="border-b border-gray-300 pb-4">
               <div tabIndex={0} className="collapse collapse-plus">
                 <div className="collapse-title text-xl font-medium text-gray-700">
                   Decoration
@@ -127,7 +125,7 @@ const Products = () => {
                   <p>
                     <Link
                       to="/products/decoration/flowers"
-                      className=" hover:underline"
+                      className="hover:underline"
                     >
                       - Flowers
                     </Link>
@@ -135,7 +133,7 @@ const Products = () => {
                   <p>
                     <Link
                       to="/products/decoration/lighting"
-                      className=" hover:underline"
+                      className="hover:underline"
                     >
                       - Lighting
                     </Link>
@@ -145,16 +143,16 @@ const Products = () => {
             </div>
           </div>
 
-          {/* Products Grid */}
-          <div className="flex justify-center w-full lg:w-3/4 ">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3  imate-fadeIn">
+          {/* Products Container */}
+          <div className="">
+            <div className="flex flex-wrap justify-center gap-16 sm:1/2 md:4/5 md:gap-8 px-4 w-full">
               {currentPosts.map((product) => (
                 <Card
                   key={product.id}
+                  id={product.id}
                   title={product.title}
                   price={product.price}
                   imageUrl={product.imageUrl}
-                  link=""
                 />
               ))}
             </div>
