@@ -30,7 +30,7 @@ const RelatedProducts = () => {
   }, []);
 
   return (
-    <div className="flex flex-col md:flex-col lg:flex-row gap-2 ">
+    <div className="flex flex-col md:flex-col lg:flex-row gap-6 ">
       {relatedProducts.map((product) => (
         <Card
           key={product.id}

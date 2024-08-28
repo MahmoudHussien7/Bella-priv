@@ -38,7 +38,7 @@ const Navbar = () => {
           : "bg-transparent text-white"
       }`}
     >
-      <div className="container mx-auto flex justify-between items-center px-6">
+      <div className="container mx-auto flex justify-between items-center px-[5%]">
         {/* Brand Section */}
         <div
           className={`text-3xl font-bold mt-4 ${

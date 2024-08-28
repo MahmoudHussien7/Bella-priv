@@ -14,6 +14,7 @@ import Shop from "./User/Pages/Shop";
 import Cart from "./User/Pages/Cart";
 import Checkout from "./User/Pages/Checkout";
 import Dashboard from "./Admin/Pages/Dashboard";
+import Page404 from "./User/Pages/Page404";
 
 const root = createRoot(document.getElementById("root"));
 root.render(
@@ -32,7 +33,7 @@ root.render(
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/dashboard" element={<Dashboard />} />
 
-        <Route path="*" element={<h1>404 - Page Not Found</h1>} />
+        <Route path="*" element={<Page404 />} />
       </Routes>
     </Router>
   </React.StrictMode>
