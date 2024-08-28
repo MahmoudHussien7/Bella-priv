@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 export default function PageBanner({
   title,
-  bg_image = "src/assets/Images/cart-page-header.jpg",
+  bg_image = "../../assets/Images/cart-page-header.jpg",
 }) {
   return (
     <div className="relative bg-gray-100 h-60 flex items-center justify-center">

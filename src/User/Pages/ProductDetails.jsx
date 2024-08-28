@@ -18,7 +18,7 @@ function ProductDetails() {
         </h2>
         <RelatedProducts />
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

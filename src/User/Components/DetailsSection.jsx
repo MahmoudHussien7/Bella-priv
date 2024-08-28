@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
-import ProductDetails from "../assets/Images/details.jpg";
+import ProductDetails from "../../assets/Images/details.jpg";
 import { NavLink } from "react-router-dom";
 
 function Details() {

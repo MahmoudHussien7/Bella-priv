@@ -1,4 +1,4 @@
-import DecorationImage from "../../assets/Images/Decoration.jpg";
+import DecorationImage from "../../../assets/Images/Decoration.jpg";
 
 const Banner = ({ title }) => {
   return (

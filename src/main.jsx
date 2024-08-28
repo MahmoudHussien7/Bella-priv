@@ -3,16 +3,16 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./index.css";
 // import App from "./App";
-import Login from "./Pages/Login"; // Import the Login component
-import Home from "./Pages/Home"; // Assuming you have a Home component
+import Login from "./User/Pages/Login"; // Import the Login component
+import Home from "./User/Pages/Home"; // Assuming you have a Home component
 // import Navbar from "./Components/Navbar"; // Assuming Navbar is outside App for global use
-import Register from "./Pages/Register";
-import AboutUs from "./Pages/AboutUs";
-import Products from "./Pages/Products";
-import ProductDetails from "./Pages/ProductDetails";
-import Shop from "./Pages/Shop";
-import Cart from "./Pages/Cart";
-import Checkout from "./Pages/Checkout";
+import Register from "./User/Pages/Register";
+import AboutUs from "./User/Pages/AboutUs";
+import Products from "./User/Pages/Products";
+import ProductDetails from "./User/Pages/ProductDetails";
+import Shop from "./User/Pages/Shop";
+import Cart from "./User/Pages/Cart";
+import Checkout from "./User/Pages/Checkout";
 
 const root = createRoot(document.getElementById("root"));
 root.render(

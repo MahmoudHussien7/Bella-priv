@@ -26,7 +26,7 @@ const Home = () => {
           <BtnMore />
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
-import aboutImg1 from "../assets/Images/about1.jpg";
-import aboutImg2 from "../assets/Images/about2.jpg";
+import aboutImg1 from "../../assets/Images/about1.jpg";
+import aboutImg2 from "../../assets/Images/about2.jpg";
 
 function About() {
   return (

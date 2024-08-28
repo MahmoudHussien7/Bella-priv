@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
-import imgCatogeryBg from "../assets/Images/Catogery.jpg";
+import imgCatogeryBg from "../../assets/Images/Catogery.jpg";
 import Catogery from "./catogery";
 
 function CategorySection() {

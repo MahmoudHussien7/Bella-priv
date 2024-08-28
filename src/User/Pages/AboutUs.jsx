@@ -1,10 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useRef } from "react";
 import Navbar from "../Components/Navbar";
-import AboutHero from "../assets/Images/cas-1.jpg";
-import SofaImage from "../assets/Images/Hero.jpg";
-import aboutImg1 from "../assets/Images/about1.jpg";
-import aboutImg2 from "../assets/Images/about2.jpg";
+import AboutHero from "../../assets/Images/cas-1.jpg";
+import SofaImage from "../../assets/Images/Hero.jpg";
+import aboutImg1 from "../../assets/Images/about1.jpg";
+import aboutImg2 from "../../assets/Images/about2.jpg";
 import Footer from "../Components/footer";
 
 const AboutUs = () => {

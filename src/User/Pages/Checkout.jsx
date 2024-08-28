@@ -1,5 +1,5 @@
 import Navbar from "../Components/Navbar";
-import PageBanner from "../components/PageBanner";
+import PageBanner from "../Components/PageBanner";
 
 const Checkout = () => {
   return (

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import db from "../../public/db.json";
+import db from "../../../public/db.json";
 import ShopSidebar from "../Components/shop/ShopSidebar";
 import Card from "../Components/Card";
 import SortDropdown from "../Components/shop/SortDropdown";
