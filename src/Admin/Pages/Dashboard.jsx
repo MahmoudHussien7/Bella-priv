@@ -1,11 +1,13 @@
-import React from 'react'
 import AdminNavbar from '../Components/AdminNavbar'
+import StatisticsCards from '../Components/StatisticsCards'
 
 function Dashboard() {
   return (
-    <div>
-      <AdminNavbar/>
-    </div>
+    <div className="min-h-screen bg-gray-50">
+    <AdminNavbar />
+    <StatisticsCards />
+  
+  </div>
   )
 }
 
