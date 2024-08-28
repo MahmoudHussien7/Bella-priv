@@ -22,9 +22,7 @@ function Footer() {
 
       <div className="w-full h-[1px] bg-[#4D4D4D]"></div>
 
-
       <div className="w-full  flex flex-col md:flex-row justify-between items-center px-[7%] py-[1.5%]">
-
         <div className="flex gap-3 my-5 lg:m-0">
           <Link
             to="https://web.facebook.com"

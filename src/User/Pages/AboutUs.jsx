@@ -33,7 +33,7 @@ const AboutUs = () => {
         className="bg-cover bg-center h-[40vh] md:h-[75vh] relative flex items-center text-pretty"
       >
         <div className="animate-fadeIn">
-          <div className="text-white px-4 md:px-12 lg:px-20 text-2xl md:text-[4xl] font-extralight">
+          <div className="text-white md:px-12 lg:px-20 text-2xl md:text-[4xl] font-extralight">
             About Us
           </div>
         </div>
@@ -44,7 +44,7 @@ const AboutUs = () => {
           <h2 className="text-[2rem] font-500 font-montserrat text-gray-800 mb-4">
             WELCOME TO BELLA
           </h2>
-          <p className="text-md  max-w-[60%] text-[#9b9b9b] font-montserrat mb-8 space-y-10">
+          <p className="text-md  max-w-[60%] text-[#9b9b9b] font-montserrat mb-8 space-y-10 ">
             Your place to get one-of-a-kind furniture pieces along with our home
             styling, and consultancy services. We take great pride in providing
             a diverse selection of furniture options.

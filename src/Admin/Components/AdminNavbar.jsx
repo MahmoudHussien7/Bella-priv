@@ -4,15 +4,14 @@ import { useNavigate } from "react-router-dom";
 
 const AdminNavbar = () => {
   const [selectedTab, setSelectedTab] = useState("Dashboard"); // Default to "Dashboard"
-  const navigate = useNavigate();   
+  const navigate = useNavigate();
   const handleNavigation = (tab) => {
     setSelectedTab(tab);
     navigate(tab === "Dashboard" ? "/dashboard" : "/");
   };
 
   return (
-    <nav className="bg-green-50 p-4 flex justify-between items-center">
-     
+    <nav className="bg-hovermain p-4 flex justify-between items-center">
       <div></div>
 
       {/* Middle: UI Toggle Button */}
@@ -20,7 +19,9 @@ const AdminNavbar = () => {
         {/* Active Indicator */}
         <div
           className={`absolute rounded-full transition-all duration-300 w-24 h-10 m-1 ${
-            selectedTab === "Dashboard" ? "left-1 bg-white shadow-md" : "left-28 bg-white shadow-md"
+            selectedTab === "Dashboard"
+              ? "left-1 bg-white shadow-md"
+              : "left-28 bg-white shadow-md"
           }`}
         />
         {/* Dashboard Button */}

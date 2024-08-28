@@ -21,19 +21,18 @@ function Category() {
   }, []);
 
   return (
-    <div className="flex flex-wrap justify-center items-center content-center gap-5 px-5 lg:px-0">
+    <div className="flex flex-wrap justify-center items-center content-center gap-5 lg:px-[3.8%]">
       {category.length > 0 &&
         category.map((c) => (
           <Link
             to="/Products"
             key={c.id}
-            className="relative w-full md:w-[48%] lg:w-[30%] cursor-pointer bg-center bg-cover min-h-[25rem] max-h-[30rem] 
+            className="relative w-full md:w-[48%] lg:w-[30%] px-[7%] cursor-pointer bg-center bg-cover min-h-[25rem] max-h-[30rem] 
             lg:min-h-[25rem] lg:max-h-[70rem] xl:min-h-[35rem] xl:max-h-[60rem] group overflow-hidden"
             style={{ backgroundImage: `url(${c.image})` }}
           >
             <div
               className="absolute inset-0 transition-transform duration-300 group-hover:scale-110 bg-cover bg-center"
-
               style={{ backgroundImage: `url(${c.image})` }}
             ></div>
             <div className="absolute inset-0 opacity-50 group-hover:opacity-40 transition-opacity duration-300">
