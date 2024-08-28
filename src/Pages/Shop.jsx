@@ -65,18 +65,18 @@ const Shop = () => {
   };
 
   return (
-    <div className="bg-stone-50 min-h-screen">
-      <Banner />
+    <div className="bg-stone-50 min-h-screen ">
+      <Banner title={"Shop"} />
 
-      <div className="flex flex-col lg:flex-row container mx-auto px-4 md:px-16 lg:px-24 py-8">
+      <div className="flex flex-col lg:flex-row px-4 md:px-16 lg:px-20 py-8">
         {/* Main Content Area */}
-        <div className="flex-grow lg:pl-8 w-6/12">
-          <div className="flex justify-between items-center mb-4">
+        <div className="flex flex-col flex-grow items-center w-full">
+          <div className="flex justify-between items-center mb-4 w-[80%]">
             <p className="text-gray-600 text-sm">Showing 1–12 of 25 results</p>
             <SortDropdown onSortChange={handleSortChange} />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="flex flex-wrap justify-between sm:1/2 md:4/5 md:gap-8 w-[80%]">
             {filteredPosts.map((product) => (
               <Card
                 key={product.id}
