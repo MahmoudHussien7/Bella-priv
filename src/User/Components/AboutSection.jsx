@@ -6,7 +6,7 @@ import aboutImg2 from "../../assets/Images/about2.jpg";
 function About() {
   return (
     <div
-      className={`grid grid-cols-6  md:grid-cols-3 gap-5 justify-center items-center p-3 md:p-5 md:py-[3%] md:px-[7%] bg-[#F7F7F7]`}
+      className={`grid grid-cols-6  md:grid-cols-3 gap-5 justify-center items-center p-3 md:p-5 md:py-[3%] md:px-[7%] px-[7%] bg-[#F7F7F7]`}
     >
       <div className=" col-span-6 md:col-span-1  text-center md:text-start  p-2">
         <div className=" font-Montserrat">

@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 function Card({ id, title, price, imageUrl, className }) {
   return (
     <div
-      className={`w-full  md:w-[47%] lg:w-[47%] xl:w-[27%] hover:cursor-pointer group relative`}
+      className={`w-full h-full md:w-[47%] lg:w-[47%] xl:w-[27%] hover:cursor-pointer group relative`}
     >
       <Link to={`/Products/${id}`} className="row-span-3">
         <img
           src={imageUrl}
           alt={title}
-          className="w-full min-h-[15rem] lg:min-h-[15rem] max-h-[20rem] object-cover"
+          className="w-full min-h-[15rem] lg:min-h-[20rem] max-h-[20rem] object-cover"
         />
         <div
           className="bg-titleColor text-white grid grid-cols-4 text-center w-full  
@@ -29,11 +29,11 @@ function Card({ id, title, price, imageUrl, className }) {
       </Link>
 
       <div>
-        <h2 className="text-titleColor text-[1rem] md:text-[1.1rem] lg:text-[1.3rem] font-light mt-1 hover:text-hovermain transition-all duration-200">
+        <h2 className="text-titleColor text-[1rem] md:text-[1.1rem] lg:text-[1.3rem] font-normal mt-1 hover:text-hovermain transition-all duration-200">
           {title}
         </h2>
-        <p className="text-hovermain mt-1 text-[0.8rem] lg:text-[1rem]">
-          {price} EGP
+        <p className="text-hovermain mt-1 lg:text-[1.2rem]">
+          {price} <span className="text-[0.8rem]">EGP</span>
         </p>
       </div>
     </div>

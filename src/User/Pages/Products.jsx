@@ -50,7 +50,7 @@ const Products = () => {
         <div className="mt-16 flex flex-col lg:flex-row  ">
           {/* Products Container */}
           <div className="">
-            <div className="flex flex-wrap justify-center gap-16 sm:1/2 md:4/5 md:gap-8 px-4 w-full">
+            <div className="flex flex-wrap justify-center gap-16 sm:1/2 md:4/5 md:gap-8  w-full">
               {currentPosts.map((product) => (
                 <Card
                   key={product.id}
