@@ -13,6 +13,7 @@ import ProductDetails from "./User/Pages/ProductDetails";
 import Shop from "./User/Pages/Shop";
 import Cart from "./User/Pages/Cart";
 import Checkout from "./User/Pages/Checkout";
+import Dashboard from "./Admin/Pages/Dashboard";
 
 const root = createRoot(document.getElementById("root"));
 root.render(
@@ -29,6 +30,7 @@ root.render(
         <Route path="/contactUs" element={<Register />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/dashboard" element={<Dashboard />} />
 
         <Route path="*" element={<h1>404 - Page Not Found</h1>} />
       </Routes>
