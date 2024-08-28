@@ -14,7 +14,7 @@ function Details() {
           <h2 className="text-titleColor text-[1.2rem] md:text-[1.5rem] font-light mb-2 md:mb-5 ">
             Rozana nightstand
           </h2>
-          <p className="text-hovermain mb-2 md:mb-5">7,900EGP</p>
+          <p className="text-mainColor mb-2 md:mb-5">7,900EGP</p>
           <p className="text-textColor text-[0.8rem] mb-2 md:mb-5">
             White Zen wood
           </p>
@@ -34,7 +34,7 @@ function Details() {
             <button className="text-[14px] md:text-[14px] p-[0.3rem] border border-textColor">
               <span className="px-2">-</span> 1 <span className="px-2">+</span>
             </button>
-            <button className="text-[12px] md:text-[14px] p-[0.6rem] px-7 border border-hovermain hover:text-[#fff] hover:bg-hovermain">
+            <button className="text-[12px] md:text-[14px] p-[0.6rem] px-7 border border-mainColor hover:text-[#fff] hover:bg-mainColor">
               ADD TO CART
             </button>
           </div>

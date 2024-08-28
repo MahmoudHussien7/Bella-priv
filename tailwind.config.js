@@ -7,9 +7,10 @@ export default {
         montserrat: ["Montserrat", "Sans-serif"],
       },
       colors: {
-        hovermain: "#c0ae98",
+        mainColor: "#c0ae98",
         textColor: "#A6A6A6",
         titleColor: "#333333",
+        bannerColor:"#F4F3EF",
       },
       keyframes: {
         wiggle: {

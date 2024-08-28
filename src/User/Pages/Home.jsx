@@ -15,7 +15,7 @@ const Home = () => {
       <CategorySection />
 
       <div className="px-[7%] py-5 md:py-[3%] md:px-[7%]">
-        <p className=" text-[18px] font-normal leading-[1.5] text-hovermain  font-Montserrat letter-spacing-2">
+        <p className=" text-[18px] font-normal leading-[1.5] text-mainColor  font-Montserrat letter-spacing-2">
           {` O U R   P R O D U C T S`}
         </p>
         <h2 className="text-titleColor text-[2rem] md:text-[2.3rem] mb-5 font-semibold">

@@ -51,11 +51,11 @@ const AboutUs = () => {
           </p>
           <div className="flex space-x-16 gap-6">
             <div>
-              <p className="text-4xl font-semibold text-hovermain">165</p>
+              <p className="text-4xl font-semibold text-mainColor">165</p>
               <p className="text-sm text-gray-500">Products Completed</p>
             </div>
             <div>
-              <p className="text-4xl font-semibold text-hovermain ">300</p>
+              <p className="text-4xl font-semibold text-mainColor ">300</p>
               <p className="text-sm text-gray-500">Our Clients</p>
             </div>
           </div>
@@ -82,7 +82,7 @@ const AboutUs = () => {
         </div>
         <div className="col-span-6 md:col-span-2 text-left md:text-left  pl-[25%]">
           <div className="p-1">
-            <h2 className=" text-[14px] md:text-[1.3rem] font-normal leading-[1.4] text-hovermain mb-2 font-Montserrat letter-spacing">
+            <h2 className=" text-[14px] md:text-[1.3rem] font-normal leading-[1.4] text-mainColor mb-2 font-Montserrat letter-spacing">
               ABOUT US
             </h2>
             <p className="capitalize text-titleColor mb-3 text-[1.1rem] font-Montserrat ">
