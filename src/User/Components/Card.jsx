@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Card({ id, title, price, imageUrl, className }) {
   return (
     <div
-      className={`w-full h-full md:w-[47%] lg:w-[47%] xl:w-[27%] hover:cursor-pointer group relative`}
+      className={`w-full md:w-[47%] lg:w-[47%] xl:w-[27%] hover:cursor-pointer group relative`}
     >
       <Link to={`/Products/${id}`} className="row-span-3">
         <img
