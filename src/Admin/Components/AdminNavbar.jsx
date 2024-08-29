@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 
 const AdminNavbar = () => {
-  const [selectedTab, setSelectedTab] = useState("Dashboard"); // Default to "Dashboard"
+  const [selectedTab, setSelectedTab] = useState("Dashboard"); 
   const navigate = useNavigate();
   const handleNavigation = (tab) => {
     setSelectedTab(tab);
