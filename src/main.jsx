@@ -32,7 +32,7 @@ root.render(
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/dashboard" element={<Dashboard />} />
-
+        
         <Route path="*" element={<Page404 />} />
       </Routes>
     </Router>
