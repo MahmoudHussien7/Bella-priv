@@ -16,7 +16,7 @@ const Home = () => {
       <CategorySection />
       <Services />
 
-      <div className="px-[7%] py-5 md:py-[3%] mt-12 md:px-[7%]">
+      <div className="px-[7%] py-5 md:py-[3%]  md:px-[7%]">
         <p className=" text-[18px] font-normal leading-[1.5] text-mainColor  font-Montserrat letter-spacing-2">
           {` O U R   P R O D U C T S`}
         </p>
