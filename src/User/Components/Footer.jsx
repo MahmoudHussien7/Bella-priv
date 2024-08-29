@@ -8,7 +8,7 @@ function Footer() {
     <div className="bg-titleColor text-white">
       <div className="flex flex-col justify-center items-center p-[3%]">
         <div className="mt-3">
-          <h2 className="flex justify-center items-center flex-col text-hovermain text-[10px]">
+          <h2 className="flex justify-center items-center flex-col text-mainColor text-[10px]">
             <Link to="/" className="font-sans text-3xl font-bold">
               Bella
             </Link>

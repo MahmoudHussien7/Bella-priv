@@ -10,7 +10,9 @@ function About() {
     >
       <div className=" col-span-6 md:col-span-1 text-center md:text-start  p-2">
         <div className=" font-Montserrat">
-          <h2 className=" text-[14px]  md:text-[1.3rem] font-normal leading-[1.4]  text-hovermain mb-1 font-Montserrat letter-spacing">
+
+          <h2 className=" text-[14px] md:text-[1.3rem] font-normal leading-[1.4]  text-mainColor mb-2 font-Montserrat letter-spacing">
+
             ABOUT US
           </h2>
           <p className="capitalize text-titleColor mb-3 text-[1.1rem] font-Montserrat">
@@ -24,7 +26,8 @@ function About() {
             className="text-[12px] md:text-[14] p-[0.6rem] px-5 md:p-[0.9rem] md:px-7 relative border border-textColor  
           after:content-[''] after:absolute after:top-[20] after:left-[-18px] after:w-[20%] after:h-[40%] after:bg-[#F7F7F7]  hover:after:opacity-0
           before:content-[''] before:absolute before:top-[20] before:right-[-18px] before:w-[20%] before:h-[40%] before:bg-[#F7F7F7]  hover:before:opacity-0
-         transition ease-in-out hover:text-hovermain hover:border-hovermain hover:p-[0.7rem] hover:px-5 md:hover:p-[0.9rem] md:hover:px-7"
+         transition ease-in duration-300 hover:text-mainColor hover:border-mainColor hover:p-[0.7rem] hover:px-5 md:hover:p-[0.9rem] md:hover:px-7"
+
           >
             MORE ABOUT US
           </button>

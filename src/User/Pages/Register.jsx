@@ -41,7 +41,7 @@ const Register = () => {
                     message: "Password must be at least 6 characters long",
                   },
                 })}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-hovermain focus:ring-1 focus:ring-hovermain focus-visible:outline-none transition-colors"
+                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-mainColor focus:ring-1 focus:ring-mainColor focus-visible:outline-none transition-colors"
                 aria-label="Full Name"
                 aria-required="true"
               />
@@ -71,7 +71,7 @@ const Register = () => {
                     message: "Enter a valid email address",
                   },
                 })}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-hovermain focus:ring-1 focus:ring-hovermain focus-visible:outline-none transition-colors"
+                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-mainColor focus:ring-1 focus:ring-mainColor focus-visible:outline-none transition-colors"
                 aria-label="Email Address"
                 aria-required="true"
               />
@@ -101,7 +101,7 @@ const Register = () => {
                     message: "Password must be at least 6 characters long",
                   },
                 })}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-hovermain focus:ring-1 focus:ring-hovermain focus-visible:outline-none transition-colors"
+                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-mainColor focus:ring-1 focus:ring-mainColor focus-visible:outline-none transition-colors"
                 aria-label="Password"
                 aria-required="true"
               />
@@ -128,7 +128,7 @@ const Register = () => {
                   validate: (value) =>
                     value === watch("password") || "Passwords do not match",
                 })}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-hovermain focus:ring-1 focus:ring-hovermain focus-visible:outline-none transition-colors"
+                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-mainColor focus:ring-1 focus:ring-mainColor focus-visible:outline-none transition-colors"
                 aria-label="Confirm Password"
                 aria-required="true"
               />
@@ -142,7 +142,7 @@ const Register = () => {
             <div>
               <button
                 type="submit"
-                className="w-full py-2 px-4 bg-hovermain text-white font-semibold rounded-md shadow-md hover:bg-hovermain-light transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hovermain"
+                className="w-full py-2 px-4 bg-mainColor text-white font-semibold rounded-md shadow-md hover:bg-mainColor-light transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-mainColor"
               >
                 Sign Up
               </button>
@@ -154,7 +154,7 @@ const Register = () => {
               Already have an account?{" "}
               <Link
                 to="/login"
-                className="ml-1 text-hovermain hover:text-hovermain font-semibold transition-colors"
+                className="ml-1 text-mainColor hover:text-mainColor font-semibold transition-colors"
               >
                 Sign in
               </Link>

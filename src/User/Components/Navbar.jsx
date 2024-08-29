@@ -42,7 +42,7 @@ const Navbar = () => {
         {/* Brand Section */}
         <div
           className={`text-3xl font-bold mt-4 ${
-            navBg || location.pathname !== "/" ? "text-hovermain" : ""
+            navBg || location.pathname !== "/" ? "text-mainColor" : ""
           }`}
         >
           <span>
@@ -50,7 +50,7 @@ const Navbar = () => {
               Bella
             </Link>
           </span>
-          <p className={`text-sm font-light ${navBg ? "text-hovermain" : ""}`}>
+          <p className={`text-sm font-light ${navBg ? "text-mainColor" : ""}`}>
             <Link to="/" className="text-[0.7rem] font-extralight">
               LUXURY YOU DESERVE
             </Link>
@@ -69,35 +69,35 @@ const Navbar = () => {
 
         {/* Full Menu Links (Hidden on Small Screens) */}
         <ul className="hidden lg:flex space-x-8 uppercase tracking-wide mt-3">
-          <li className="hover:text-hovermain cursor-pointer transition-all duration-200 text-[1rem]">
+          <li className="hover:text-mainColor cursor-pointer transition-all duration-200 text-[1rem]">
             <Link to="/">Home</Link>
           </li>
-          <li className="hover:text-hovermain cursor-pointer transition-all duration-200 text-[1rem]">
+          <li className="hover:text-mainColor cursor-pointer transition-all duration-200 text-[1rem]">
             <Link to="/AboutUs">About Us</Link>
           </li>
-          <li className="hover:text-hovermain cursor-pointer transition-all duration-200 text-[1rem]">
+          <li className="hover:text-mainColor cursor-pointer transition-all duration-200 text-[1rem]">
             <Link to="/Products">Collection</Link>
           </li>
-          <li className="hover:text-hovermain cursor-pointer transition-all duration-200 text-[1rem]">
+          <li className="hover:text-mainColor cursor-pointer transition-all duration-200 text-[1rem]">
             <Link to="/contact">Contact Us</Link>
           </li>
         </ul>
 
         {/* Icons */}
         <div className="hidden lg:flex space-x-4 items-center mt-4">
-          <div className="hover:text-hovermain cursor-pointer transition-all duration-200">
+          <div className="hover:text-mainColor cursor-pointer transition-all duration-200">
             <CiSearch className="size-6" />
           </div>
-          <div className="hover:text-hovermain cursor-pointer transition-all duration-200">
+          <div className="hover:text-mainColor cursor-pointer transition-all duration-200">
             <Link to="/cart">
               <HiOutlineShoppingBag className="size-6" />
             </Link>
           </div>
-          <div className="hover:text-hovermain cursor-pointer transition-all duration-200">
+          <div className="hover:text-mainColor cursor-pointer transition-all duration-200">
             <CiHeart className="size-6" />
           </div>
           <PiLineVerticalLight className="size-6" />
-          <div className="hover:text-hovermain cursor-pointer transition-all duration-200 text-[1rem]">
+          <div className="hover:text-mainColor cursor-pointer transition-all duration-200 text-[1rem]">
             <Link to="/login" className="mr-5">
               LOGIN
             </Link>
@@ -112,31 +112,31 @@ const Navbar = () => {
         } transition-transform duration-300 lg:hidden`}
       >
         <ul className="flex flex-col space-y-8 p-8 text-black uppercase">
-          <li className="hover:text-hovermain cursor-pointer transition-all duration-200">
+          <li className="hover:text-mainColor cursor-pointer transition-all duration-200">
             <Link to="/" onClick={toggleSidebar}>
               Home
             </Link>
           </li>
-          <li className="hover:text-hovermain cursor-pointer transition-all duration-200">
+          <li className="hover:text-mainColor cursor-pointer transition-all duration-200">
             <Link to="/AboutUs" onClick={toggleSidebar}>
               About Us
             </Link>
           </li>
-          <li className="hover:text-hovermain cursor-pointer transition-all duration-200">
+          <li className="hover:text-mainColor cursor-pointer transition-all duration-200">
             <Link to="/Products" onClick={toggleSidebar}>
               Collection
             </Link>
           </li>
-          <li className="hover:text-hovermain cursor-pointer transition-all duration-200">
+          <li className="hover:text-mainColor cursor-pointer transition-all duration-200">
             <Link to="/contact" onClick={toggleSidebar}>
               Contact Us
             </Link>
           </li>
           <div className="flex space-x-4 items-center mt-4">
-            <div className="hover:text-hovermain cursor-pointer transition-all duration-200 text-black">
+            <div className="hover:text-mainColor cursor-pointer transition-all duration-200 text-black">
               <CiSearch className="size-10" />
             </div>
-            <div className="hover:text-hovermain cursor-pointer transition-all duration-200 text-black">
+            <div className="hover:text-mainColor cursor-pointer transition-all duration-200 text-black">
               <HiOutlineShoppingBag className="size-8" />
             </div>
           </div>

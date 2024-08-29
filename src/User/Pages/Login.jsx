@@ -41,7 +41,7 @@ const Login = () => {
                     message: "Invalid email address",
                   },
                 })}
-                className={`mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-hovermain focus:ring-1 focus:ring-hovermain focus-visible:outline-none transition-colors ${
+                className={`mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-mainColor focus:ring-1 focus:ring-mainColor focus-visible:outline-none transition-colors ${
                   errors.email ? "border-red-500" : ""
                 }`}
                 aria-label="Email Address"
@@ -72,7 +72,7 @@ const Login = () => {
                     message: "Password must be at least 6 characters long",
                   },
                 })}
-                className={`mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-hovermain focus:ring-1 focus:ring-hovermain focus-visible:outline-none transition-colors ${
+                className={`mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-mainColor focus:ring-1 focus:ring-mainColor focus-visible:outline-none transition-colors ${
                   errors.password ? "border-red-500" : ""
                 }`}
                 aria-label="Password"
@@ -88,7 +88,7 @@ const Login = () => {
             <div>
               <button
                 type="submit"
-                className="w-full py-2 px-4 bg-[#B48E61] text-white font-semibold rounded-md shadow-md hover:bg-hovermain-light transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hovermain"
+                className="w-full py-2 px-4 bg-[#B48E61] text-white font-semibold rounded-md shadow-md hover:bg-mainColor-light transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-mainColor"
               >
                 Sign in
               </button>
@@ -100,7 +100,7 @@ const Login = () => {
               Don’t have an account?
               <Link
                 to="/Register"
-                className="ml-1 text-hovermain hover:text-hovermain font-montserrat transition-colors"
+                className="ml-1 text-mainColor hover:text-mainColor font-montserrat transition-colors"
               >
                 Sign up
               </Link>

@@ -1,9 +1,10 @@
 import { useState } from "react";
 import About1 from "../../assets/Images/about1.jpg";
 import { useNavigate } from "react-router-dom";
+import { HiOutlineShoppingBag } from "react-icons/hi2";
 
 const AdminNavbar = () => {
-  const [selectedTab, setSelectedTab] = useState("Dashboard"); // Default to "Dashboard"
+  const [selectedTab, setSelectedTab] = useState("Dashboard"); 
   const navigate = useNavigate();
   const handleNavigation = (tab) => {
     setSelectedTab(tab);
@@ -11,16 +12,16 @@ const AdminNavbar = () => {
   };
 
   return (
-    <nav className="bg-hovermain p-4 flex justify-between items-center">
+    <nav className="bg-white shadow-sm p-4 flex justify-between items-center">
       <div></div>
 
       {/* Middle: UI Toggle Button */}
-      <div className="relative bg-gray-200 rounded-full shadow-inner flex items-center justify-center w-52 h-12">
+      <div className="relative bg-white rounded-full shadow-inner flex items-center justify-center w-52 h-12">
         {/* Active Indicator */}
         <div
-          className={`absolute rounded-full transition-all duration-300 w-24 h-10 m-1 ${
+          className={`absolute rounded-full  transition-all duration-300 w-24 h-10 m-1 ${
             selectedTab === "Dashboard"
-              ? "left-1 bg-white shadow-md"
+              ? "left-1 bg-white shadow-md "
               : "left-28 bg-white shadow-md"
           }`}
         />
@@ -29,7 +30,7 @@ const AdminNavbar = () => {
           onClick={() => handleNavigation("Dashboard")}
           className={`z-10 w-1/2 px-4 py-2 rounded-full focus:outline-none transition-all duration-300 ${
             selectedTab === "Dashboard"
-              ? "text-black font-semibold"
+              ? "text-mainColor font-semibold"
               : "text-gray-500"
           }`}
         >
@@ -52,7 +53,7 @@ const AdminNavbar = () => {
       <div className="flex items-center space-x-4">
         <div className="relative">
           <button className="flex items-center bg-white rounded-full px-4 py-2 shadow-md focus:outline-none">
-            <span className="mr-2">Cart</span>
+            <span className="mr-2"> <HiOutlineShoppingBag className="size-5" /></span>
             <span className="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs">
               8
             </span>
