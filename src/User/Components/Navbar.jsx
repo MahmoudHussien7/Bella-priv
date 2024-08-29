@@ -32,13 +32,13 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full top-0 z-50 transition-colors duration-500 px-10 ${
+      className={`fixed w-full top-0 z-50 transition-colors duration-500 px-[7%] ${
         navBg || (location.pathname !== "/" && location.pathname !== "/AboutUs")
           ? "bg-white text-black h-20"
           : "bg-transparent text-white"
       }`}
     >
-      <div className="container mx-auto flex justify-between items-center px-[5%]">
+      <div className="container mx-auto flex justify-between items-center">
         {/* Brand Section */}
         <div
           className={`text-3xl font-bold mt-4 ${

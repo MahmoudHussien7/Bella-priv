@@ -4,6 +4,7 @@ import ShopSidebar from "../Components/shop/ShopSidebar";
 import Card from "../Components/Card";
 import SortDropdown from "../Components/shop/SortDropdown";
 import Banner from "../Components/shop/Banner";
+import Navbar from "../Components/Navbar";
 
 const Shop = () => {
   const [currentPosts, setCurrentPosts] = useState([]);
@@ -66,9 +67,10 @@ const Shop = () => {
 
   return (
     <div className="bg-stone-50 min-h-screen ">
+      <Navbar />
       <Banner title={"Shop"} />
 
-      <div className="flex flex-col lg:flex-row px-4 md:px-16 lg:px-18 py-8">
+      <div className="flex flex-col lg:flex-row px-4 m lg:px-7 py-8 ">
         {/* Main Content Area */}
         <div className="flex flex-col flex-grow items-center w-full">
           <div className="flex justify-between items-center mb-4 w-[86%]">

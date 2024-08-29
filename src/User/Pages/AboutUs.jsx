@@ -33,7 +33,7 @@ const AboutUs = () => {
         className="bg-cover bg-center h-[40vh] md:h-[75vh] relative flex items-center text-pretty"
       >
         <div className="animate-fadeIn">
-          <div className="text-white md:px-12 lg:px-20 text-2xl md:text-[4xl] font-extralight">
+          <div className="text-white md:px-12 lg:px-28  text-2xl md:text-[4xl] font-montserrat font-normal ">
             About Us
           </div>
         </div>
@@ -41,7 +41,7 @@ const AboutUs = () => {
       <div className="flex flex-col lg:flex-row items-center justify-between px-[7%] my-[5%] bg-white">
         {/* Left Side - Text Content */}
         <div className="mb-8 lg:mb-0">
-          <h2 className="text-[2rem] font-500 font-montserrat text-gray-800 mb-4">
+          <h2 className="text-[2rem] font-500 font-montserrat text-titleColor  mb-4">
             WELCOME TO BELLA
           </h2>
           <p className="text-md  max-w-[60%] text-[#9b9b9b] font-montserrat mb-8 space-y-10 ">

@@ -3,7 +3,7 @@ import DecorationImage from "../../../assets/Images/Decoration.jpg";
 const Banner = ({ title }) => {
   return (
     <div
-      className="relative bg-cover bg-center h-60"
+      className="relative bg-cover bg-center h-60 mt-16 px-[7%]"
       style={{ backgroundImage: `url(${DecorationImage})` }}
     >
       <div className="absolute inset-0 bg-black opacity-50"></div>

@@ -12,7 +12,7 @@ const Products = () => {
     <div className="bg-stone-50 min-h-screen">
       <Navbar />
 
-      <div className="mt-16 bg-[#f4f3ef]">
+      <div className="mt-16 bg-[#f4f3ef] px-[7%]">
         <div className="bg-product flex justify-center items-center h-72">
           <h2 className="text-5xl md:text-5xl text-gray-700 p-5 font-bold">
             Collection
