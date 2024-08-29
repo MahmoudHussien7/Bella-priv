@@ -15,6 +15,8 @@ import Cart from "./User/Pages/Cart";
 import Checkout from "./User/Pages/Checkout";
 import Dashboard from "./Admin/Pages/Dashboard";
 import Page404 from "./User/Pages/Page404";
+import ProfileUser from "./User/Pages/profileUser";
+import UserInfo from "./User/Components/userInfo.JSX";
 
 const root = createRoot(document.getElementById("root"));
 root.render(
@@ -32,7 +34,15 @@ root.render(
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        
+
+        {/* Nested routes under /profileUser */}
+        <Route path="/profileUser" element={<ProfileUser />}>
+          <Route path="user-info" element={<UserInfo />} />
+          {/* <Route path="favourites" element={<Favourites />} />
+            <Route path="settings" element={<Settings />} />
+            <Route path="notifications" element={<Notifications />} /> */}
+        </Route>
+
         <Route path="*" element={<Page404 />} />
       </Routes>
     </Router>
