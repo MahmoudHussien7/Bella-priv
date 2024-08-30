@@ -24,7 +24,7 @@ const Home = () => {
           COLLECTIONS
         </h2>
         <RelatedProducts />
-        <div className="flex justify-center items-center p-10">
+        <div className="flex justify-center items-center p-10 ">
           <BtnMore />
         </div>
       </div>

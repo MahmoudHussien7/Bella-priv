@@ -17,7 +17,7 @@ const RelatedProducts = () => {
         const response = await fetch("../public/db.json");
         const data = await response.json();
         // const products = [...data];
-        let products = data.slice(0, 4);
+        let products = data.slice(0, 3);
 
         setProducts(products);
 
@@ -30,7 +30,7 @@ const RelatedProducts = () => {
   }, []);
 
   return (
-    <div className="flex flex-col md:flex-col lg:flex-row gap-6 ">
+    <div className="flex flex-row lg:flex-row justify-center md-flex-wrap md:flex-row sm:flex-wrap sm:flex-col gap-3 d-md-flex  ">
       {relatedProducts.map((product) => (
         <Card
           key={product.id}
