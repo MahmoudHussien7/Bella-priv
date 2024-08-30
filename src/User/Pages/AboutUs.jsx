@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useRef } from "react";
 import Navbar from "../Components/Navbar";
 import AboutHero from "../../assets/Images/cas-1.jpg";
@@ -9,6 +8,7 @@ import Footer from "../Components/footer";
 
 const AboutUs = () => {
   const smallImageRef = useRef(null);
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop =
@@ -33,18 +33,19 @@ const AboutUs = () => {
         className="bg-cover bg-center h-[40vh] md:h-[75vh] relative flex items-center text-pretty"
       >
         <div className="animate-fadeIn">
-          <div className="text-white md:px-12 lg:px-28  text-2xl md:text-[4xl] font-montserrat font-normal ">
+          <div className="text-white md:px-12 lg:px-28 text-2xl md:text-[4xl] font-montserrat font-normal">
             About Us
           </div>
         </div>
       </div>
+
       <div className="flex flex-col lg:flex-row items-center justify-between px-[7%] my-[5%] bg-white">
         {/* Left Side - Text Content */}
         <div className="mb-8 lg:mb-0">
-          <h2 className="text-[2rem] font-500 font-montserrat text-titleColor  mb-4">
+          <h2 className="text-[2rem] font-500 font-montserrat text-titleColor mb-4">
             WELCOME TO BELLA
           </h2>
-          <p className="text-md  max-w-[60%] text-[#9b9b9b] font-montserrat mb-8 space-y-10 ">
+          <p className="text-md max-w-[60%] text-[#9b9b9b] font-montserrat mb-8 space-y-10">
             Your place to get one-of-a-kind furniture pieces along with our home
             styling, and consultancy services. We take great pride in providing
             a diverse selection of furniture options.
@@ -55,14 +56,14 @@ const AboutUs = () => {
               <p className="text-sm text-gray-500">Products Completed</p>
             </div>
             <div>
-              <p className="text-4xl font-semibold text-mainColor ">300</p>
+              <p className="text-4xl font-semibold text-mainColor">300</p>
               <p className="text-sm text-gray-500">Our Clients</p>
             </div>
           </div>
         </div>
 
         {/* Right Side - Image */}
-        <div className=" flex items-center justify-center bg-black">
+        <div className="flex items-center justify-center bg-black">
           <img
             src={SofaImage}
             alt="Luxury Sofa"
@@ -70,31 +71,38 @@ const AboutUs = () => {
           />
         </div>
       </div>
-      <div className=" grid grid-cols-6 md:grid-cols-4  items-center justify-center md:px-[7%] mb-[5%]">
-        <div className="col-span-6 md:col-span-2 relative  mr-[15%]">
-          <img src={aboutImg1} alt="aboutUs" className="w-full md:w-[85%]" />
+
+      <div className="grid grid-cols-6 md:grid-cols-4 items-center justify-center md:px-[7%] mb-[5%]">
+        <div className="col-span-6 md:col-span-2 relative mr-[15%]">
+          <img
+            src={aboutImg1}
+            alt="aboutUs"
+            className="w-full md:w-[85%] object-cover"
+          />
           <img
             ref={smallImageRef}
             src={aboutImg2}
             alt="aboutUs"
-            className="absolute w-[100%] md:w-[60%] left-0 md:left-[60%] top-[8rem] md:top-[55%]"
+            className="absolute w-[100%] md:w-[60%] left-0 md:left-[60%] top-[8rem] md:top-[55%] object-cover hidden md:block"
           />
         </div>
-        <div className="col-span-6 md:col-span-2 text-left md:text-left  pl-[25%]">
+
+        <div className="col-span-6 md:col-span-2 text-left pl-[25%] ">
           <div className="p-1">
-            <h2 className=" text-[14px] md:text-[1.3rem] font-normal leading-[1.4] text-mainColor mb-2 font-Montserrat letter-spacing">
+            <h2 className="text-[14px] md:text-[1.3rem] font-normal leading-[1.4] text-mainColor mb-2 font-Montserrat letter-spacing">
               ABOUT US
             </h2>
-            <p className="capitalize text-titleColor mb-3 text-[1.1rem] font-Montserrat ">
+            <p className="capitalize text-titleColor mb-3 text-[1.1rem] font-Montserrat">
               Best furniture at the best price
             </p>
-            <p className="text-textColor mb-2 text-[14px] md:text-[1.1rem] font-Montserrat ">
+            <p className="text-textColor mb-2 text-[14px] md:text-[1.1rem] font-Montserrat">
               We are a home furniture manufacturer, mainly engaged in designing,
               manufacturing, and selling home furniture products.
             </p>
           </div>
         </div>
-      </div>{" "}
+      </div>
+
       <Footer />
     </div>
   );
