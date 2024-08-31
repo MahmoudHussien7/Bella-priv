@@ -5,6 +5,7 @@ import CategorySection from "../Components/categorySection";
 import RelatedProducts from "../Components/RelatedProducts";
 import BtnMore from "../Components/BtnMore";
 import Footer from "../Components/footer";
+import Services from "../Components/Services";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Hero />
       <About />
       <CategorySection />
+      <Services/>
 
       <div className="px-[7%] py-5 md:py-[3%] md:px-[7%]">
         <p className=" text-[18px] font-normal leading-[1.5] text-mainColor  font-Montserrat letter-spacing-2">
