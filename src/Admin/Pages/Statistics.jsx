@@ -1,15 +1,12 @@
-import HeaderWithSubPath from '../Components/HeaderWithSubPath';
-import StatisticsCards from '../Components/StatisticsCards';
-import BalanceOverview from '../Components/BalanceOverview';
-import CouponCard from '../Components/CouponCard';
+import HeaderWithSubPath from "../Components/HeaderWithSubPath";
+import StatisticsCards from "../Components/StatisticsCards";
+import BalanceOverview from "../Components/BalanceOverview";
+import CouponCard from "../Components/CouponCard";
 
 const Statistics = () => {
   return (
-    <div >
-      {/* Header with breadcrumb */}
+    <div className="space-y-6">
       <HeaderWithSubPath title="Dashboard" breadcrumb="Home / Dashboard" />
-
-      {/* Statistics Components */}
       <StatisticsCards />
       <BalanceOverview />
       <CouponCard />
