@@ -8,7 +8,7 @@ import { removeFromCart, adjustQuantity } from "../../Redux/Slices/CartSlice";
 const CartPage = () => {
   const cart = useSelector((state) => state.cart.items);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
-  const quantity = useSelector((state) => state.cart.totalQuantity);
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const dispatch = useDispatch();
 
   // Handle increment and decrement of quantity
@@ -77,7 +77,7 @@ const CartPage = () => {
                           </span>
                         </td>
                         <td className="text-center text-gray-600">
-                          {item.price}EGP
+                          {item.price} EGP
                         </td>
                         <td className="text-center">
                           <div className="inline-flex items-center space-x-2">
@@ -89,7 +89,7 @@ const CartPage = () => {
                             >
                               +
                             </button>
-                            <span>{quantity}</span>
+                            <span>{item.quantity}</span>
                             <button
                               onClick={() =>
                                 handleAdjustQuantity(item.id, item.quantity - 1)
@@ -106,7 +106,7 @@ const CartPage = () => {
                           </div>
                         </td>
                         <td className="text-center text-gray-600">
-                          {item.price * quantity}EGP
+                          {item.price * item.quantity} EGP
                         </td>
                       </tr>
                     ))}
@@ -121,8 +121,12 @@ const CartPage = () => {
             <h2 className="text-lg font-semibold pb-4">Cart totals</h2>
             <div className="mt-4">
               <div className="flex justify-between border-b pb-2">
-                <p className="text-gray-600">Total</p>
-                <p className="font-semibold">{totalPrice}EGP</p>
+                <p className="text-gray-600">Total Items</p>
+                <p className="font-semibold">{totalQuantity}</p>
+              </div>
+              <div className="flex justify-between border-b pb-2 mt-2">
+                <p className="text-gray-600">Total Price</p>
+                <p className="font-semibold">{totalPrice} EGP</p>
               </div>
             </div>
             <Link

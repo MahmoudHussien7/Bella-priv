@@ -5,13 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../Redux/Slices/CartSlice";
 
 function Card({ id, title, price, imageUrl }) {
-  const value = useSelector((state) => state.cart.items);
-
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
     const product = { id, title, price, imageUrl };
-    dispatch(addToCart(product));
+    dispatch(addToCart(product)); // addToCart now works correctly with these fields
   };
 
   return (
