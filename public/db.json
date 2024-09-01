@@ -3,43 +3,50 @@
     "id": 1,
     "title": "Stylish Chair",
     "price": 1500,
-    "imageUrl": "https://i.pinimg.com/originals/80/76/7d/80767dc048eefc4b2ca9e9934123d89a.jpg"
+    "imageUrl": "https://i.pinimg.com/originals/80/76/7d/80767dc048eefc4b2ca9e9934123d89a.jpg",
+    "quantity": 5
   },
   {
     "id": 2,
     "title": "Modern Lamp",
     "price": 750,
-    "imageUrl": "https://img.freepik.com/free-photo/living-room-with-blue-sofa-gold-coffee-table_123827-23877.jpg"
+    "imageUrl": "https://img.freepik.com/free-photo/living-room-with-blue-sofa-gold-coffee-table_123827-23877.jpg",
+    "quantity": 5
   },
   {
     "id": 3,
     "title": "Becca Bed",
     "price": 3000,
-    "imageUrl": "https://cascaron.store/wp-content/uploads/2024/05/dvvb.jpg"
+    "imageUrl": "https://cascaron.store/wp-content/uploads/2024/05/dvvb.jpg",
+    "quantity": 5
   },
   {
     "id": 4,
     "title": "Comfortable Sofa",
     "price": 5000,
-    "imageUrl": "https://i.pinimg.com/originals/80/76/7d/80767dc048eefc4b2ca9e9934123d89a.jpg"
+    "imageUrl": "https://i.pinimg.com/originals/80/76/7d/80767dc048eefc4b2ca9e9934123d89a.jpg",
+    "quantity": 5
   },
   {
     "id": 5,
     "title": "Elegant Vase",
     "price": 200,
-    "imageUrl": "https://i.pinimg.com/originals/80/76/7d/80767dc048eefc4b2ca9e9934123d89a.jpg"
+    "imageUrl": "https://i.pinimg.com/originals/80/76/7d/80767dc048eefc4b2ca9e9934123d89a.jpg",
+    "quantity": 5
   },
   {
     "id": 6,
     "title": "Elegant Vase",
     "price": 200,
-    "imageUrl": "https://i.pinimg.com/originals/80/76/7d/80767dc048eefc4b2ca9e9934123d89a.jpg"
+    "imageUrl": "https://i.pinimg.com/originals/80/76/7d/80767dc048eefc4b2ca9e9934123d89a.jpg",
+    "quantity": 5
   },
   {
     "id": 7,
     "title": "Elegant Vase",
     "price": 200,
-    "imageUrl": "https://i.pinimg.com/originals/80/76/7d/80767dc048eefc4b2ca9e9934123d89a.jpg"
+    "imageUrl": "https://i.pinimg.com/originals/80/76/7d/80767dc048eefc4b2ca9e9934123d89a.jpg",
+    "quantity": 5
   },
   {
     "id": 8,

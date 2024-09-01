@@ -1,11 +1,25 @@
+// src/pages/CartPage.js
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import Navbar from "../Components/Navbar";
 import PageBanner from "../Components/PageBanner";
+import { removeFromCart, adjustQuantity } from "../../Redux/Slices/CartSlice";
 
 const CartPage = () => {
+  const cart = useSelector((state) => state.cart.items);
+  const totalPrice = useSelector((state) => state.cart.totalPrice);
+  const quantity = useSelector((state) => state.cart.totalQuantity);
+  const dispatch = useDispatch();
+
+  // Handle increment and decrement of quantity
+  const handleAdjustQuantity = (id, newQuantity) => {
+    if (newQuantity > 0) {
+      dispatch(adjustQuantity({ id, quantity: newQuantity }));
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Cart Banner */}
       <Navbar />
       <PageBanner title="Cart" />
 
@@ -14,31 +28,9 @@ const CartPage = () => {
           {/* Cart Items */}
           <div className="md:max-w-4xl w-full">
             <div className="bg-white rounded shadow-md overflow-hidden">
-              {/* For small screens */}
-              <div className="md:hidden flex flex-col space-y-4 p-4">
-                <div className="flex items-center space-x-4 bg-white border-b last:border-0 hover:bg-gray-50 transition p-4 rounded">
-                  <div className="w-16">
-                    <img
-                      src="/dvvb-600x720.jpg"
-                      alt="Becca bed"
-                      className="w-full object-cover rounded"
-                    />
-                  </div>
-                  <div className="flex-grow">
-                    <span className="font-medium text-gray-700">Becca bed</span>
-                    <div className="text-sm text-gray-600">Quantity: 1</div>
-                    <div className="text-sm text-gray-600">
-                      Subtotal: 21,000EGP
-                    </div>
-                  </div>
-                  <button className="text-gray-600 hover:text-red-500 transition">
-                    &#10005;
-                  </button>
-                </div>
-              </div>
-
-              {/* For medium screens and above */}
-              <div className="hidden md:block">
+              {cart.length === 0 ? (
+                <p className="text-center py-4">Your cart is empty.</p>
+              ) : (
                 <table className="min-w-full bg-white border-collapse text-sm md:text-base">
                   <thead className="bg-gray-100">
                     <tr>
@@ -59,46 +51,68 @@ const CartPage = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="border-b last:border-0 hover:bg-gray-50 transition">
-                      <td className="text-center py-4">
-                        <button className="text-gray-600 hover:text-red-500 transition">
-                          &#10005;
-                        </button>
-                      </td>
-                      <td className="py-4">
-                        <img
-                          src="/dvvb-600x720.jpg"
-                          alt="Perry's Chair"
-                          className="w-16 object-cover rounded"
-                        />
-                      </td>
-                      <td className="py-4">
-                        <span className="font-medium text-gray-700">
-                          Perry`s Chair
-                        </span>
-                      </td>
-                      <td className="text-center text-gray-600">12,500EGP</td>
-                      <td className="text-center">
-                        <div className="inline-flex items-center space-x-2">
-                          <button className="rounded bg-transparent transition">
-                            -
+                    {cart.map((item) => (
+                      <tr
+                        key={item.id}
+                        className="border-b last:border-0 hover:bg-gray-50 transition"
+                      >
+                        <td className="text-center py-4">
+                          <button
+                            onClick={() => dispatch(removeFromCart(item))}
+                            className="text-gray-600 hover:text-red-500 transition"
+                          >
+                            &#10005;
                           </button>
-                          <input
-                            type="text"
-                            value="1"
-                            className="w-12 text-center text-black bg-transparent rounded border-none border-gray-200 focus:outline-none"
-                            readOnly
+                        </td>
+                        <td className="py-4">
+                          <img
+                            src={item.imageUrl}
+                            alt={item.title}
+                            className="w-16 object-cover rounded"
                           />
-                          <button className="rounded hover:bg-transparent transition">
-                            +
-                          </button>
-                        </div>
-                      </td>
-                      <td className="text-center text-gray-600">12,500EGP</td>
-                    </tr>
+                        </td>
+                        <td className="py-4">
+                          <span className="font-medium text-gray-700">
+                            {item.title}
+                          </span>
+                        </td>
+                        <td className="text-center text-gray-600">
+                          {item.price}EGP
+                        </td>
+                        <td className="text-center">
+                          <div className="inline-flex items-center space-x-2">
+                            <button
+                              onClick={() =>
+                                handleAdjustQuantity(item.id, item.quantity + 1)
+                              }
+                              className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
+                            >
+                              +
+                            </button>
+                            <span>{quantity}</span>
+                            <button
+                              onClick={() =>
+                                handleAdjustQuantity(item.id, item.quantity - 1)
+                              }
+                              disabled={item.quantity === 1}
+                              className={`px-2 py-1 bg-gray-200 rounded hover:bg-gray-300 ${
+                                item.quantity === 1
+                                  ? "cursor-not-allowed opacity-50"
+                                  : ""
+                              }`}
+                            >
+                              -
+                            </button>
+                          </div>
+                        </td>
+                        <td className="text-center text-gray-600">
+                          {item.price * quantity}EGP
+                        </td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
-              </div>
+              )}
             </div>
           </div>
 
@@ -107,17 +121,13 @@ const CartPage = () => {
             <h2 className="text-lg font-semibold pb-4">Cart totals</h2>
             <div className="mt-4">
               <div className="flex justify-between border-b pb-2">
-                <p className="text-gray-600">Subtotal</p>
-                <p className="font-semibold">12,500EGP</p>
-              </div>
-              <div className="flex justify-between mt-2 pb-2">
                 <p className="text-gray-600">Total</p>
-                <p className="font-semibold">12,500EGP</p>
+                <p className="font-semibold">{totalPrice}EGP</p>
               </div>
             </div>
             <Link
               to="/checkout"
-              className="mt-4    bg-gray-800 text-white py-4 rounded hover:bg-gray-700 transition text-sm md:text-base"
+              className="mt-4 bg-gray-800 text-white py-4 rounded hover:bg-gray-700 transition text-center block w-full"
             >
               Proceed to Checkout
             </Link>

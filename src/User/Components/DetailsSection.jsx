@@ -3,7 +3,14 @@ import React from "react";
 import ProductDetails from "../../assets/Images/details.jpg";
 import { NavLink } from "react-router-dom";
 
-function Details() {
+function Details({ id, title, price, imageUrl }) {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    const product = { id, title, price, imageUrl };
+    dispatch(addToCart(product));
+  };
+
   return (
     <>
       <div className="grid grid-cols-2 gap-10 px-[7%] py-5 md:py-[3%] md:px-[7%]">

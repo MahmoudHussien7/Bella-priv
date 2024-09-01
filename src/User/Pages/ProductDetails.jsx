@@ -7,6 +7,7 @@ import RelatedProducts from "../Components/RelatedProducts";
 import Footer from "../Components/footer";
 
 function ProductDetails() {
+  
   return (
     <div>
       <Link />

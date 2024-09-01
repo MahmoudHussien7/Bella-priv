@@ -11,6 +11,7 @@ export default {
         textColor: "#A6A6A6",
         titleColor: "#333333",
         bannerColor:"#F4F3EF",
+        
       },
       keyframes: {
         wiggle: {
