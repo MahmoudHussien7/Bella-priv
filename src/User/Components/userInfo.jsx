@@ -105,7 +105,7 @@ function UserInfo() {
           </div>
 
           <button
-            className="bg-hovermain text-white max-w-4xl mt-20 text-[1rem] px-9 py-3 rounded-lg border shadow-sm
+            className="bg-mainColor  text-white max-w-4xl mt-20 text-[1rem] px-9 py-3 rounded-lg border shadow-sm
               border-hovermain hover:bg-white hover:text-hovermain"
             type="submit"
           >
