@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "../../Redux/Slices/AuthSlice";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const { error, loading } = useSelector((state) => state.auth);
+
   const {
     register,
     handleSubmit,
@@ -10,16 +15,21 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(
+      loginUser({
+        email: data.email,
+        password: data.password,
+      })
+    );
   };
 
   return (
     <>
       <Navbar />
-      <div className="min-h-screen flex items-center justify-center bg-gray-50  animate-fadeIn">
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 animate-fadeIn">
         <div className="w-full max-w-md px-8 py-10 bg-white rounded-lg shadow-lg">
           <div className="flex justify-center items-center gap-3 mb-6">
-            <h1 className="text-3xl font-semibold text-gray-700 ">Sign in</h1>
+            <h1 className="text-3xl font-semibold text-gray-700">Sign in</h1>
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -41,7 +51,7 @@ const Login = () => {
                     message: "Invalid email address",
                   },
                 })}
-                className={`mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-mainColor focus:ring-1 focus:ring-mainColor focus-visible:outline-none transition-colors ${
+                className={`mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-mainColor focus:ring-1 focus:ring-mainColor transition-colors ${
                   errors.email ? "border-red-500" : ""
                 }`}
                 aria-label="Email Address"
@@ -72,7 +82,7 @@ const Login = () => {
                     message: "Password must be at least 6 characters long",
                   },
                 })}
-                className={`mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-mainColor focus:ring-1 focus:ring-mainColor focus-visible:outline-none transition-colors ${
+                className={`mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-mainColor focus:ring-1 focus:ring-mainColor transition-colors ${
                   errors.password ? "border-red-500" : ""
                 }`}
                 aria-label="Password"
@@ -93,6 +103,8 @@ const Login = () => {
                 Sign in
               </button>
             </div>
+
+            {error && <p className="text-red-500 text-center mt-3">{error}</p>}
           </form>
 
           <div className="text-center mt-6">
