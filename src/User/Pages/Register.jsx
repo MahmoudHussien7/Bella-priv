@@ -1,28 +1,41 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import Navbar from "../Components/Navbar";
+import { useDispatch, useSelector } from "react-redux";
+import { registerUser } from "../../Redux/Slices/AuthSlice";
 
 const Register = () => {
+  const dispatch = useDispatch();
+  const { error, loading } = useSelector((state) => state.auth);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(
+      registerUser({
+        email: data.email,
+        password: data.password,
+        fullName: data.fullName,
+      })
+    );
   };
 
   return (
     <>
       <Navbar />
-      <div className="min-h-screen flex items-center justify-center bg-gray-50  overflow-hidden">
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 overflow-hidden">
         <div className="w-full max-w-md px-8 py-10 bg-white rounded-lg shadow-lg overflow-hidden">
           <div className="flex justify-center items-center gap-3 mb-6">
-            <h1 className="text-3xl font-semibold text-gray-700">Sign up </h1>
+            <h1 className="text-3xl font-semibold text-gray-700">Sign up</h1>
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            {/* Full Name Input */}
             <div>
               <label
                 htmlFor="fullName"
@@ -38,12 +51,10 @@ const Register = () => {
                   required: "Full Name is required",
                   minLength: {
                     value: 6,
-                    message: "Password must be at least 6 characters long",
+                    message: "Full Name must be at least 6 characters long",
                   },
                 })}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-mainColor focus:ring-1 focus:ring-mainColor focus-visible:outline-none transition-colors"
-                aria-label="Full Name"
-                aria-required="true"
+                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-mainColor focus:ring-1 focus:ring-mainColor transition-colors"
               />
               {errors.fullName && (
                 <p className="text-red-500 text-sm mt-1">
@@ -71,9 +82,7 @@ const Register = () => {
                     message: "Enter a valid email address",
                   },
                 })}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-mainColor focus:ring-1 focus:ring-mainColor focus-visible:outline-none transition-colors"
-                aria-label="Email Address"
-                aria-required="true"
+                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-mainColor focus:ring-1 focus:ring-mainColor transition-colors"
               />
               {errors.email && (
                 <p className="text-red-500 text-sm mt-1">
@@ -101,9 +110,7 @@ const Register = () => {
                     message: "Password must be at least 6 characters long",
                   },
                 })}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-mainColor focus:ring-1 focus:ring-mainColor focus-visible:outline-none transition-colors"
-                aria-label="Password"
-                aria-required="true"
+                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-mainColor focus:ring-1 focus:ring-mainColor transition-colors"
               />
               {errors.password && (
                 <p className="text-red-500 text-sm mt-1">
@@ -112,6 +119,7 @@ const Register = () => {
               )}
             </div>
 
+            {/* Confirm Password Input */}
             <div>
               <label
                 htmlFor="confirmPassword"
@@ -128,9 +136,7 @@ const Register = () => {
                   validate: (value) =>
                     value === watch("password") || "Passwords do not match",
                 })}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-mainColor focus:ring-1 focus:ring-mainColor focus-visible:outline-none transition-colors"
-                aria-label="Confirm Password"
-                aria-required="true"
+                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-mainColor focus:ring-1 focus:ring-mainColor transition-colors"
               />
               {errors.confirmPassword && (
                 <p className="text-red-500 text-sm mt-1">
@@ -139,14 +145,21 @@ const Register = () => {
               )}
             </div>
 
+            {/* Submit Button */}
             <div>
               <button
                 type="submit"
                 className="w-full py-2 px-4 bg-mainColor text-white font-semibold rounded-md shadow-md hover:bg-mainColor-light transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-mainColor"
+                disabled={loading}
               >
-                Sign Up
+                {loading ? "Signing up..." : "Sign Up"}
               </button>
             </div>
+
+            {/* Error Message */}
+            {error && (
+              <p className="text-red-500 text-sm mt-2 text-center">{error}</p>
+            )}
           </form>
 
           <div className="text-center mt-6">
