@@ -34,7 +34,7 @@ function Dashboard() {
       {/* Main content area */}
       <div className="flex-1 flex flex-col ml-64">
         {/* Admin Navbar */}
-        <AdminNavbar />
+        {/* <AdminNavbar /> */}
         <main className="flex-1 p-6">
           {/* Render the selected content */}
           {renderContent()}
