@@ -1,11 +1,15 @@
 // src/features/auth/authSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { auth } from "../../Firebase/Firebaseconfig";
+import { auth, db } from "../../Firebase/Firebaseconfig";
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
+
+import { doc, setDoc } from "firebase/firestore"; // import Firestore methods
+
 
 export const registerUser = createAsyncThunk(
   "auth/registerUser",
@@ -17,7 +21,16 @@ export const registerUser = createAsyncThunk(
         password
       );
       const user = userCredential.user;
+
+      // Store user information in Firestore under the 'Users' collection
+      await setDoc(doc(db, "Users", user.uid), {
+        fullName,
+        email,
+        createdAt: new Date().toISOString(),
+      });
+
       // You can also store the fullName to Firestore here
+
       return { user, fullName };
     } catch (error) {
       return rejectWithValue(error.message);
@@ -89,3 +102,4 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
+

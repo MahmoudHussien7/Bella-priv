@@ -5,8 +5,11 @@ import { Link, useLocation } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { PiLineVerticalLight } from "react-icons/pi";
 import { CiHeart } from "react-icons/ci";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+
   const [navBg, setNavBg] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation(); // Get current path
@@ -73,7 +76,7 @@ const Navbar = () => {
             <Link to="/">Home</Link>
           </li>
           <li className="hover:text-mainColor cursor-pointer transition-all duration-200 text-[1rem]">
-            <Link to="/AboutUs">About Us</Link>
+            <Link to="/aboutus">About Us</Link>
           </li>
           <li className="hover:text-mainColor cursor-pointer transition-all duration-200 text-[1rem]">
             <Link to="/Products">Collection</Link>
@@ -88,9 +91,17 @@ const Navbar = () => {
           <div className="hover:text-mainColor cursor-pointer transition-all duration-200">
             <CiSearch className="size-6" />
           </div>
-          <div className="hover:text-mainColor cursor-pointer transition-all duration-200">
-            <Link to="/cart">
+          <div className="hover:text-mainColor cursor-pointer transition-all duration-200 relative">
+            <Link
+              to="/cart"
+              className="relative h-10 flex items-center justify-center"
+            >
               <HiOutlineShoppingBag className="size-6" />
+              {totalQuantity > 0 && (
+                <span className="absolute top-0 right-[-2px] flex justify-center items-center text-white bg-opacity-100 bg-red-900 rounded-full text-xs px-[3px] ">
+                  {totalQuantity}
+                </span>
+              )}
             </Link>
           </div>
           <div className="hover:text-mainColor cursor-pointer transition-all duration-200">
