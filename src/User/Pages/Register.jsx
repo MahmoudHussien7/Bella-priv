@@ -1,14 +1,16 @@
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import Navbar from "../Components/Navbar";
+
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../../Redux/Slices/AuthSlice";
+// import { useState } from "react";
 
 const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate(); // Initialize navigate function
+  // const [isdisabled, setDisabled] = useState(true);
   const { error, loading } = useSelector((state) => state.auth);
-
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -16,24 +18,34 @@ const Register = () => {
     watch,
   } = useForm();
 
-  const onSubmit = async (data) => {
-    try {
-      await dispatch(
-        registerUser({
-          email: data.email,
-          password: data.password,
-          fullName: data.fullName,
-        })
-      ).unwrap(); // Unwrap to get the result of the action
-      navigate("/"); // Redirect to the home page after successful registration
-    } catch (err) {
-      console.error("Registration error:", err);
-    }
+
+  const onSubmit = (data) => {
+    dispatch(
+      registerUser({
+        email: data.email,
+        password: data.password,
+        fullName: data.fullName,
+      })
+    )
+      .unwrap()
+      .then(() => {
+        navigate("/");
+        // setDisabled(false);
+      })
+      .catch((error) => {
+        if (error.code === "auth/invalid-credential") {
+          console.error("Invalid credentials.");
+          alert(
+            "The credentials provided are invalid. Please check your input and try again."
+          );
+          console.error("Registration error: ", error);
+        }
+      });
+
   };
 
   return (
     <>
-      <Navbar />
       <div className="min-h-screen flex items-center justify-center bg-gray-50 overflow-hidden">
         <div className="w-full max-w-md px-8 py-10 bg-white rounded-lg shadow-lg overflow-hidden">
           <div className="flex justify-center items-center gap-3 mb-6">
@@ -170,7 +182,7 @@ const Register = () => {
 
           <div className="text-center mt-6">
             <p className="text-sm text-gray-500">
-              Already have an account?{" "}
+              Already have an account?
               <Link
                 to="/login"
                 className="ml-1 text-mainColor hover:text-mainColor font-semibold transition-colors"

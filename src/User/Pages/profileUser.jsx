@@ -1,8 +1,8 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { CiUser, CiHeart, CiSettings } from "react-icons/ci";
 import { IoIosNotificationsOutline } from "react-icons/io";
-import { FaSignOutAlt } from "react-icons/fa";
 import { useState } from "react";
+import { IoIosLogOut } from "react-icons/io";
 
 function ProfileUser() {
   // State to keep track of the active link
@@ -73,7 +73,7 @@ function ProfileUser() {
             to="/"
             className="ml-1 text-titleColor font-montserrat transition-colors flex gap-2 items-center w-full p-4 rounded-md"
           >
-            <FaSignOutAlt size={20} />
+            <IoIosLogOut size={18} />
             Back Home
           </NavLink>
         </div>

@@ -1,5 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { auth, db } from "../../Firebase/Firebaseconfig";
+
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -7,30 +11,40 @@ import {
 } from "firebase/auth";
 import { doc, setDoc, getDoc, collection, getDocs } from "firebase/firestore";
 
+
 export const registerUser = createAsyncThunk(
   "auth/registerUser",
-  async ({ email, password, fullName }, { rejectWithValue }) => {
+  async ({ email, password, fullName,roles }, { rejectWithValue }) => {
     try {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
-        password
+        password,
+        roles,
       );
       const user = userCredential.user;
 
+
       await setDoc(doc(db, "Users", user.uid), {
+=======
+      const userDetails = {
+
         fullName,
         email,
+        roles:"user",
         createdAt: new Date().toISOString(),
-      });
+      };
+      await setDoc(doc(db, "Users", user.uid), userDetails);
 
-      return { user, fullName };
+      return { user, userDetails };
+
     } catch (error) {
       return rejectWithValue(error.message);
     }
   }
 );
 
+// Login user
 export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async ({ email, password }, { rejectWithValue }) => {
@@ -40,16 +54,30 @@ export const loginUser = createAsyncThunk(
         email,
         password
       );
-      return userCredential.user;
+      const user = userCredential.user;
+
+      // Fetch user details from Firestore
+      const docRef = doc(db, "Users", user.uid);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const userDetails = docSnap.data();
+        return { user, userDetails };
+      } else {
+        return rejectWithValue("User document does not exist");
+      }
     } catch (error) {
       return rejectWithValue(error.message);
     }
   }
 );
 
+// Logout user
 export const logoutUser = createAsyncThunk("auth/logoutUser", async () => {
   await signOut(auth);
+  console.log("signOut");
 });
+
 
 export const fetchUsers = createAsyncThunk(
   "auth/fetchUsers",
@@ -67,6 +95,9 @@ export const fetchUsers = createAsyncThunk(
     }
   }
 );
+
+// Fetch user data
+
 export const fetchUserData = createAsyncThunk(
   "auth/fetchUserData",
   async (_, { rejectWithValue }) => {
@@ -76,10 +107,16 @@ export const fetchUserData = createAsyncThunk(
       if (user) {
         const docRef = doc(db, "Users", user.uid);
         const docSnap = await getDoc(docRef);
+
         console.log(docSnap.data());
 
+     
+
+
         if (docSnap.exists()) {
-          return { user, userDetails: docSnap.data() };
+          const userDetails = docSnap.data();
+          return { user, userDetails };
+
         } else {
           return rejectWithValue("User document does not exist");
         }
@@ -91,6 +128,7 @@ export const fetchUserData = createAsyncThunk(
     }
   }
 );
+
 const authSlice = createSlice({
   name: "auth",
   initialState: {
@@ -103,6 +141,7 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+
       .addCase(registerUser.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -110,37 +149,33 @@ const authSlice = createSlice({
       .addCase(registerUser.fulfilled, (state, action) => {
         state.loading = false;
         state.user = action.payload.user;
+        state.userDetails = action.payload.userDetails;
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       })
+
+      // Login user
+
       .addCase(loginUser.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.user = action.payload;
+        state.user = action.payload.user;
+        state.userDetails = action.payload.userDetails;
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       })
+
+      // Logout user
       .addCase(logoutUser.fulfilled, (state) => {
         state.user = null;
-      })
-      .addCase(fetchUsers.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(fetchUsers.fulfilled, (state, action) => {
-        state.loading = false;
-        state.users = action.payload;
-      })
-      .addCase(fetchUsers.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
+        state.userDetails = null;
       })
       // Fetch user data
       .addCase(fetchUserData.pending, (state) => {
@@ -160,3 +195,4 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
+
