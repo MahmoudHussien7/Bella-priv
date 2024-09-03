@@ -1,34 +1,41 @@
 import { useState, useEffect } from "react";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
-import { CiSearch } from "react-icons/ci";
-import { Link, useLocation } from "react-router-dom";
+import { CiSearch, CiHeart, CiUser } from "react-icons/ci";
+import { Link, useLocation, NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { PiLineVerticalLight } from "react-icons/pi";
-import { CiHeart } from "react-icons/ci";
+import { IoIosLogOut } from "react-icons/io";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUserData,logoutUser } from "../../Redux/Slices/AuthSlice";
 
 const Navbar = () => {
   const [navBg, setNavBg] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const location = useLocation(); // Get current path
+  const location = useLocation();
+  const dispatch = useDispatch();
+
+  const { user, userDetails } = useSelector((state) => state.auth);
 
   const changeNavBg = () => {
-    if (window.scrollY > 0) {
-      setNavBg(true);
-    } else {
-      setNavBg(false);
-    }
+    setNavBg(window.scrollY > 0);
   };
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
-
+  const logOut = () => {
+    dispatch(logoutUser());
+  };
   useEffect(() => {
+    if (user) {
+      dispatch(fetchUserData());
+    }
+
     window.addEventListener("scroll", changeNavBg);
     return () => {
       window.removeEventListener("scroll", changeNavBg);
     };
-  }, []);
+  }, [dispatch, user]);
 
   return (
     <nav
@@ -45,11 +52,9 @@ const Navbar = () => {
             navBg || location.pathname !== "/" ? "text-mainColor" : ""
           }`}
         >
-          <span>
-            <Link to="/" className="flex justify-center font-sans">
-              Bella
-            </Link>
-          </span>
+          <Link to="/" className="flex justify-center font-sans">
+            Bella
+          </Link>
           <p className={`text-sm font-light ${navBg ? "text-mainColor" : ""}`}>
             <Link to="/" className="text-[0.7rem] font-extralight">
               LUXURY YOU DESERVE
@@ -97,11 +102,45 @@ const Navbar = () => {
             <CiHeart className="size-6" />
           </div>
           <PiLineVerticalLight className="size-6" />
-          <div className="hover:text-mainColor cursor-pointer transition-all duration-200 text-[1rem]">
-            <Link to="/login" className="mr-5">
-              LOGIN
-            </Link>
-          </div>
+
+          {userDetails ? (
+            <div className="flex-none text-center">
+              <div className="dropdown dropdown-end">
+                <div tabIndex={0} role="button" className="">
+                  <div className="w-40 text-[1rem]">
+                    {userDetails?.fullName}
+                  </div>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                >
+                  <li>
+                    <NavLink className=" text-titleColor" to="/profileUser/">
+                      <CiUser size={18} />
+                      User Profile
+                    </NavLink>
+                  </li>
+                  <li>
+                    <Link
+                      onClick={logOut}
+                      className=" text-titleColor"
+                      to="/login"
+                    >
+                      <IoIosLogOut size={18} />
+                      LogOut
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          ) : (
+            <div className="hover:text-mainColor cursor-pointer transition-all duration-200 text-[1rem]">
+              <Link to="/login" className="mr-5">
+                LOGIN
+              </Link>
+            </div>
+          )}
         </div>
       </div>
 

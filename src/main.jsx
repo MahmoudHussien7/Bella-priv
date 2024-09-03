@@ -17,6 +17,7 @@ import ProfileUser from "./User/Pages/ProfileUser";
 import UserInfo from "./User/Components/UserInfo"; // Make sure path is correct
 import { Provider } from "react-redux";
 import storeApp from "./Redux/Store";
+import Setting from "./User/Components/Setting";
 const root = createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -42,7 +43,7 @@ root.render(
 
             {/* Other nested routes */}
             <Route path="favourites" element={<div>Favourites</div>} />
-            <Route path="settings" element={<div>Settings</div>} />
+            <Route path="settings" element={<Setting/>} />
             <Route path="notifications" element={<div>Notifications</div>} />
           </Route>
 
