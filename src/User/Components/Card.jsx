@@ -1,22 +1,20 @@
 // src/components/Card.jsx
 import { CiHeart } from "react-icons/ci";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToCart } from "../../Redux/Slices/CartSlice";
 
-function Card({ id, title, price, imageUrl }) {
+function Card({ id, title, imageUrl, price, uid }) {
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
-    const product = { id, title, price, imageUrl };
-    dispatch(addToCart(product)); // addToCart now works correctly with these fields
+    const product = { id, title, imageUrl, price, uid };
+    dispatch(addToCart(product)); // Add product by id, title, price, and imageUrl
   };
 
   return (
-    <div
-      className={`w-full md:w-[47%] lg:w-[47%] xl:w-[27%] hover:cursor-pointer group relative`}
-    >
-      <Link to={`/Products/${id}`} className="row-span-3">
+    <div className="w-full md:w-[47%] lg:w-[47%] xl:w-[27%] hover:cursor-pointer group relative">
+      <Link to={`/products/${id}`} className="row-span-3">
         <img
           src={imageUrl}
           alt={title}

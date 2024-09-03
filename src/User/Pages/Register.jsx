@@ -1,11 +1,12 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../../Redux/Slices/AuthSlice";
 
 const Register = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate(); // Initialize navigate function
   const { error, loading } = useSelector((state) => state.auth);
 
   const {
@@ -15,14 +16,19 @@ const Register = () => {
     watch,
   } = useForm();
 
-  const onSubmit = (data) => {
-    dispatch(
-      registerUser({
-        email: data.email,
-        password: data.password,
-        fullName: data.fullName,
-      })
-    );
+  const onSubmit = async (data) => {
+    try {
+      await dispatch(
+        registerUser({
+          email: data.email,
+          password: data.password,
+          fullName: data.fullName,
+        })
+      ).unwrap(); // Unwrap to get the result of the action
+      navigate("/"); // Redirect to the home page after successful registration
+    } catch (err) {
+      console.error("Registration error:", err);
+    }
   };
 
   return (

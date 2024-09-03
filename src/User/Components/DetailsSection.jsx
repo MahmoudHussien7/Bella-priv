@@ -2,6 +2,8 @@
 import React from "react";
 import ProductDetails from "../../assets/Images/details.jpg";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../Redux/Slices/CartSlice";
 
 function Details({ id, title, price, imageUrl }) {
   const dispatch = useDispatch();
@@ -41,7 +43,10 @@ function Details({ id, title, price, imageUrl }) {
             <button className="text-[14px] md:text-[14px] p-[0.3rem] border border-textColor">
               <span className="px-2">-</span> 1 <span className="px-2">+</span>
             </button>
-            <button className="text-[12px] md:text-[14px] p-[0.6rem] px-7 border border-mainColor hover:text-[#fff] hover:bg-mainColor">
+            <button
+              className="text-[12px] md:text-[14px] p-[0.6rem] px-7 border border-mainColor hover:text-[#fff] hover:bg-mainColor"
+              onClick={handleAddToCart}
+            >
               ADD TO CART
             </button>
           </div>
