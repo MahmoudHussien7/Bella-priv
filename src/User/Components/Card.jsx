@@ -26,9 +26,9 @@ function Card({ id, title, price, imageUrl }) {
 
       <div className="bg-titleColor text-white grid grid-cols-4 text-center w-full opacity-0 group-hover:opacity-100 transition-all duration-300">
         <div className="col-span-3 p-3 flex justify-center items-center hover:bg-mainColor hover:text-white transition-all duration-200">
-          <div className="text-[0.9rem]" onClick={handleAddToCart}>
+          <button className="text-[0.9rem]" onClick={handleAddToCart}>
             ADD TO CART
-          </div>
+          </button>
         </div>
         <div
           className="col-span-1 cursor-pointer border-gray-500 border transition-all duration-200 hover:text-white hover:border-mainColor hover:bg-mainColor flex justify-center items-center"

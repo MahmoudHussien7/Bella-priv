@@ -1,13 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { auth, db } from "../../configFire/firebaseConfig";
+
 import { doc, getDoc, setDoc } from "firebase/firestore";
+import { auth, db } from "../../Firebase/Firebaseconfig";
+
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
 
-// Register user
+
 export const registerUser = createAsyncThunk(
   "auth/registerUser",
   async ({ email, password, fullName,roles }, { rejectWithValue }) => {
@@ -19,6 +22,7 @@ export const registerUser = createAsyncThunk(
         roles,
       );
       const user = userCredential.user;
+
       const userDetails = {
         fullName,
         email,
@@ -28,6 +32,7 @@ export const registerUser = createAsyncThunk(
       await setDoc(doc(db, "Users", user.uid), userDetails);
 
       return { user, userDetails };
+
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -156,3 +161,4 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
+
