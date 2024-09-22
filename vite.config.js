@@ -8,4 +8,12 @@ export default defineConfig({
     host: "0.0.0.0", // This allows access from any device on the network
     port: 3000, // You can change the port if needed
   },
+  build: {
+    assetsDir: "assets",
+    rollupOptions: {
+      output: {
+        assetFileNames: "assets/[name].[ext]",
+      },
+    },
+  },
 });
