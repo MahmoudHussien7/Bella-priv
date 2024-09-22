@@ -31,7 +31,9 @@ function Dashboard() {
 
       {/* Main content */}
       <div
-        className={`flex-grow p-4 transition-all duration-300 ${isSidebarOpen ? "ml-[250px]" : "ml-[80px]"}`}
+        className={`flex-grow p-4 transition-all duration-300 ${
+          isSidebarOpen ? "ml-[250px]" : "ml-[80px]"
+        }`}
       >
         <Outlet />
       </div>
