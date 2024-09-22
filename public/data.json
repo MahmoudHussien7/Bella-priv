@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "LIVING ROOM",
+    "image": "src/assets/Images/LivingRoom.jpg"
+  },
+  {
+    "id": 2,
+    "name": "DECORATION",
+    "image": "src/assets/Images/Decoration.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Bed Room",
+    "image": "src/assets/Images/BedRoom.jpg"
+  }
+]
