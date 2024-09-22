@@ -15,7 +15,7 @@ import Page404 from "./User/Pages/Page404";
 import ContactUs from "./User/Pages/ContactUs";
 import Wishlist from "./User/Pages/Wishlist";
 import ProfileUser from "./User/Pages/profileUser";
-import UserInfo from "./User/Components/userInfo.JSX";
+import UserInfo from "./User/Components/userInfo";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../src/config/firebase";
 import ProtectedRoute from "../src/ProtectedRoute/ProtectedRoute";
