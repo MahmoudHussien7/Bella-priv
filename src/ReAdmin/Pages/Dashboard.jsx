@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
-import SidebarDash from "../components/SidebarDash";
 import { GiHamburgerMenu } from "react-icons/gi";
+import SidebarDash from "../Components/SidebarDash";
 
 function Dashboard() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
