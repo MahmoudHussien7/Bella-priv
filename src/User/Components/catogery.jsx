@@ -7,7 +7,7 @@ function Category() {
 
   const fetchCategory = async () => {
     try {
-      const res = await fetch("data.json");
+      const res = await fetch("/data.json");
       const data = await res.json();
       setCategory(data);
     } catch (error) {

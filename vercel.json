@@ -1,7 +1,3 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }],
-  "static": {
-    "directory": "public",
-    "exclude": ["**/.*", "**/node_modules/**"]
-  }
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
