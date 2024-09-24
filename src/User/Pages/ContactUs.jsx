@@ -7,10 +7,7 @@ const ContactUs = () => {
       <Navbar />
 
       {/* Header Section */}
-      <PageBanner
-        title="Contact Us"
-        bg_image="../../../public/ciri-hm-bg.jpg"
-      />
+      <PageBanner title="Contact Us" bg_image="/ciri-hm-bg.jpg" />
 
       {/* Contact Form Section */}
       <div className="container max-w-7xl mx-auto px-4 py-12 mt-10 flex flex-col lg:flex-row gap-12">
