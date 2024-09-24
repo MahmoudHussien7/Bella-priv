@@ -2,16 +2,16 @@
   {
     "id": 1,
     "name": "LIVING ROOM",
-    "image": "src/assets/Images/LivingRoom.jpg"
+    "image": "public/LivingRoom.jpg"
   },
   {
     "id": 2,
     "name": "DECORATION",
-    "image": "public/ggg-600x720.jpg"
+    "image": "public/details.jpg"
   },
   {
     "id": 3,
     "name": "Bed Room",
-    "image": "src/assets/Images/BedRoom.jpg"
+    "image": "public/BedRoom.jpg"
   }
 ]
