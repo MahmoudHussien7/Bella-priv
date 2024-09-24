@@ -5,7 +5,7 @@ function Category() {
     {
       id: 1,
       name: "LIVING ROOM",
-      image: "/LivingRoom.jpg",
+      image: "https://cascaron.store/wp-content/uploads/2024/05/buf-33.jpg",
     },
     {
       id: 2,
