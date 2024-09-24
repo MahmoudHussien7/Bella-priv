@@ -3,7 +3,7 @@ import React from "react";
 
 const servicesData = [
   {
-    imgSrc: "/public/lamba.svg",
+    imgSrc: "/lamba.svg",
     imgAlt: "Icon",
     title: "SHOP",
     subtitle: "Furniture Selections",
@@ -11,7 +11,7 @@ const servicesData = [
       "Enjoy a stress-free and enjoyable home styling experience, knowing that our team is dedicated to delivering exceptional results.",
   },
   {
-    imgSrc: "/public/home.svg",
+    imgSrc: "/home.svg",
     imgAlt: "Icon",
     title: "Design & Development",
     subtitle: "Furniture Selections",
@@ -19,7 +19,7 @@ const servicesData = [
       "Enjoy a stress-free and enjoyable home styling experience, knowing that our team is dedicated to delivering exceptional results..",
   },
   {
-    imgSrc: "/public/Lampshade.svg",
+    imgSrc: "/Lampshade.svg",
     imgAlt: "Icon",
     title: "Customization",
     subtitle: "Planning & Conceptualizing",
