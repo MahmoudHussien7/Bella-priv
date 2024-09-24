@@ -5,17 +5,17 @@ function Category() {
     {
       id: 1,
       name: "LIVING ROOM",
-      image: "public/LivingRoom.jpg",
+      image: "/LivingRoom.jpg",
     },
     {
       id: 2,
       name: "DECORATION",
-      image: "public/details.jpg",
+      image: "/details.jpg",
     },
     {
       id: 3,
       name: "Bed Room",
-      image: "public/BedRoom.jpg",
+      image: "/BedRoom.jpg",
     },
   ];
 
@@ -49,7 +49,6 @@ function Category() {
 
 export default Category;
 
-
 // /* eslint-disable no-unused-vars */
 // import { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
@@ -78,7 +77,7 @@ export default Category;
 //           <Link
 //             to={`/shop`}
 //             key={c.id}
-//             className="relative w-full md:w-[48%] lg:w-[30%] px-[7%] cursor-pointer bg-center bg-cover min-h-[25rem] max-h-[30rem] 
+//             className="relative w-full md:w-[48%] lg:w-[30%] px-[7%] cursor-pointer bg-center bg-cover min-h-[25rem] max-h-[30rem]
 //             lg:min-h-[25rem] lg:max-h-[70rem] xl:min-h-[35rem] xl:max-h-[60rem] group overflow-hidden"
 //             style={{ backgroundImage: `url(${c.image})` }}
 //           >
