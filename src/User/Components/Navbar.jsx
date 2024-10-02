@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { CiHeart, CiUser } from "react-icons/ci";
-
 import { Link, useLocation, NavLink, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { PiLineVerticalLight } from "react-icons/pi";
@@ -31,9 +30,10 @@ const Navbar = () => {
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
+
   const logOut = async () => {
     try {
-      await dispatch(logoutUser()).unwrap(); // Assuming logoutUser is an async thunk
+      await dispatch(logoutUser()).unwrap();
       toast.success("Logged out successfully!", {
         position: "bottom-right",
       });
@@ -44,6 +44,7 @@ const Navbar = () => {
       });
     }
   };
+
   useEffect(() => {
     if (user) {
       dispatch(fetchUserData());
@@ -86,9 +87,7 @@ const Navbar = () => {
         <div className="lg:hidden">
           <button
             onClick={toggleSidebar}
-            className={`text-3xl ${
-              navBg ? "text-titleColor" : "text-btncolor"
-            }`}
+            className={`text-3xl ${navBg ? "text-mainColor" : "text-white"}`}
           >
             {sidebarOpen ? <FaTimes /> : <FaBars />}
           </button>
@@ -156,11 +155,7 @@ const Navbar = () => {
                     </NavLink>
                   </li>
                   <li>
-                    <Link
-                      onClick={logOut}
-                      className=" text-titleColor"
-                      // to="/login"
-                    >
+                    <Link onClick={logOut} className=" text-titleColor">
                       <IoIosLogOut size={18} />
                       LogOut
                     </Link>
@@ -189,7 +184,8 @@ const Navbar = () => {
           className="absolute top-4 right-4 text-3xl cursor-pointer"
           onClick={() => setSidebarOpen(false)}
         >
-          {/* <FaTimes /> */}
+          {sidebarOpen}
+          {/* Add FaTimes back when sidebar is open */}
         </div>
         <ul className="flex flex-col space-y-8 p-8 text-black uppercase">
           <li className="hover:text-mainColor cursor-pointer transition-all duration-200">
@@ -217,29 +213,46 @@ const Navbar = () => {
               Store
             </Link>
           </li>
-          {userDetails ? (
-            <li>
-              <NavLink
-                className=" text-titleColor hover:text-hovermain"
+          {/* Add icons to the sidebar */}
+          <div className="flex gap-8 ">
+            <li className="flex items-center justify-between">
+              <Link to="/cart" onClick={toggleSidebar}>
+                <HiOutlineShoppingBag className="size-6 hover:text-hovermain" />
+                {totalQuantity > 0 && (
+                  <span className="ml-2 bg-[#DD5746] text-white rounded-full px-2 py-1 text-xs">
+                    {totalQuantity}
+                  </span>
+                )}
+              </Link>
+            </li>
+            <li className="hover:text-mainColor cursor-pointer transition-all duration-200">
+              <Link to="/wishlist" onClick={toggleSidebar}>
+                <CiHeart className="size-7" />
+              </Link>{" "}
+            </li>
+          </div>
+          <li className="hover:text-mainColor cursor-pointer transition-all duration-200">
+            {userDetails ? (
+              <Link
                 to="/profileUser/userInfo"
                 onClick={toggleSidebar}
+                className="flex gap-2"
               >
-                {userDetails.userName}
-              </NavLink>
+                <CiUser className="size-6" /> {userDetails?.userName}
+              </Link>
+            ) : (
+              <Link to="/login" onClick={toggleSidebar}>
+                LOGIN
+              </Link>
+            )}
+          </li>
+          {userDetails && (
+            <li>
+              <button onClick={logOut} className="text-red-500 flex gap-2">
+                <IoIosLogOut size={24} />
+                Logout
+              </button>
             </li>
-          ) : (
-            <>
-              <li className="hover:text-mainColor cursor-pointer transition-all duration-200">
-                <Link to="/login" onClick={toggleSidebar}>
-                  Login
-                </Link>
-              </li>
-              <li className="hover:text-mainColor cursor-pointer transition-all duration-200">
-                <Link to="/register" onClick={toggleSidebar}>
-                  Register
-                </Link>
-              </li>
-            </>
           )}
         </ul>
       </div>
