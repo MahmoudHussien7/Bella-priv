@@ -137,7 +137,7 @@ const Navbar = () => {
             <div className="flex-none text-center">
               <div className="dropdown dropdown-end">
                 <div tabIndex={0} role="button" className="">
-                  <div className="w-40 text-[1rem]">
+                  <div className="w-36 text-[1rem]">
                     {userDetails?.userName}
                   </div>
                 </div>
