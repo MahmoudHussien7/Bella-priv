@@ -11,4 +11,3 @@ const ProtectedRoute = ({ children, isAllowed, redirectPath = "/" }) => {
 
 export default ProtectedRoute;
 
-// children=component, isAllowed=hasPermission, redirectPath=redirectLink 

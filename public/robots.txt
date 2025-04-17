@@ -1,0 +1,41 @@
+# robots.txt for Bella Store
+# https://bellastore.vercel.app
+
+User-agent: *
+Allow: /
+
+# منع الزحف إلى صفحات المستخدم الخاصة
+Disallow: /account
+Disallow: /checkout
+Disallow: /cart
+Disallow: /login
+Disallow: /register
+Disallow: /admin
+Disallow: /api/
+Disallow: /dashboard
+
+# منع الزحف إلى الصفحات التي تحتوي على معلمات البحث
+Disallow: /*?search=
+Disallow: /*?filter=
+Disallow: /*?sort=
+Disallow: /*?page=
+
+# السماح بالزحف إلى الصفحات المهمة
+Allow: /products
+Allow: /categories
+Allow: /about
+Allow: /contact
+Allow: /blog
+
+# تحديد موقع ملف Sitemap (إذا كان موجودًا)
+Sitemap: https://bellastore.vercel.app/sitemap.xml
+
+# منع الزحف من روبوتات محددة (مثال)
+User-agent: AdsBot-Google
+Disallow: /checkout
+Disallow: /cart
+
+# تعليمات خاصة بـ Googlebot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
