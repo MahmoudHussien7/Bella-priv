@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { CiHeart, CiUser } from "react-icons/ci";
 import { Link, useLocation, NavLink, useNavigate } from "react-router-dom";
@@ -19,18 +18,17 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { user, userDetails } = useSelector((state) => state.auth);
 
-  const changeNavBg = () => {
-    if (window.scrollY > 0) {
-      setNavBg(true);
-    } else {
-      setNavBg(false);
-    }
-  };
+  // Memoized function to handle navbar background change
+  const changeNavBg = useCallback(() => {
+    setNavBg(window.scrollY > 0);
+  }, []);
 
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
-  };
+  // Memoized function to toggle the sidebar
+  const toggleSidebar = useCallback(() => {
+    setSidebarOpen((prev) => !prev);
+  }, []);
 
+  // Logout function with error handling
   const logOut = async () => {
     try {
       await dispatch(logoutUser()).unwrap();
@@ -50,11 +48,13 @@ const Navbar = () => {
       dispatch(fetchUserData());
     }
 
+    // Add scroll event listener
     window.addEventListener("scroll", changeNavBg);
     return () => {
+      // Clean up scroll event listener
       window.removeEventListener("scroll", changeNavBg);
     };
-  }, [dispatch, user]);
+  }, [dispatch, user, changeNavBg]);
 
   return (
     <nav
@@ -71,11 +71,9 @@ const Navbar = () => {
             navBg || location.pathname !== "/" ? "text-mainColor" : ""
           }`}
         >
-          <span>
-            <Link to="/" className="flex justify-center font-sans">
-              Bella
-            </Link>
-          </span>
+          <Link to="/" className="flex justify-center font-sans">
+            Bella
+          </Link>
           <p className={`text-sm font-light ${navBg ? "text-mainColor" : ""}`}>
             <Link to="/" className="text-[0.7rem] font-extralight">
               LUXURY YOU DESERVE
@@ -119,7 +117,7 @@ const Navbar = () => {
           <div className="hover:text-mainColor cursor-pointer transition-all duration-200 relative">
             <Link to="/cart">
               {totalQuantity > 0 && (
-                <span className="absolute top-[0px] right-[-5px] flex justify-center items-center text-white bg-opacity-100 bg-[#DD5746] rounded-full text-xs px-[3px] ">
+                <span className="absolute top-[0px] right-[-5px] flex justify-center items-center text-white bg-opacity-100 bg-[#DD5746] rounded-full text-xs px-[3px]">
                   {totalQuantity}
                 </span>
               )}
@@ -129,14 +127,14 @@ const Navbar = () => {
           <div className="hover:text-mainColor cursor-pointer transition-all duration-200">
             <Link to="/wishlist">
               <CiHeart className="size-6" />
-            </Link>{" "}
+            </Link>
           </div>
           <PiLineVerticalLight className="size-6" />
 
           {userDetails ? (
             <div className="flex-none text-center">
               <div className="dropdown dropdown-end">
-                <div tabIndex={0} role="button" className="">
+                <div tabIndex={0} role="button">
                   <div className="w-36 text-[1rem]">
                     {userDetails?.userName}
                   </div>
@@ -147,7 +145,7 @@ const Navbar = () => {
                 >
                   <li>
                     <NavLink
-                      className=" text-titleColor"
+                      className="text-titleColor"
                       to="/profileUser/userInfo"
                     >
                       <CiUser size={18} />
@@ -155,7 +153,7 @@ const Navbar = () => {
                     </NavLink>
                   </li>
                   <li>
-                    <Link onClick={logOut} className=" text-titleColor">
+                    <Link onClick={logOut} className="text-titleColor">
                       <IoIosLogOut size={18} />
                       LogOut
                     </Link>
@@ -178,15 +176,7 @@ const Navbar = () => {
         className={`fixed top-0 left-0 h-full w-64 bg-white text-black shadow-lg z-50 transform ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 lg:hidden`}
-        onClick={() => setSidebarOpen(false)}
       >
-        <div
-          className="absolute top-4 right-4 text-3xl cursor-pointer"
-          onClick={() => setSidebarOpen(false)}
-        >
-          {sidebarOpen}
-          {/* Add FaTimes back when sidebar is open */}
-        </div>
         <ul className="flex flex-col space-y-8 p-8 text-black uppercase">
           <li className="hover:text-mainColor cursor-pointer transition-all duration-200">
             <Link to="/" onClick={toggleSidebar}>
@@ -204,7 +194,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="hover:text-mainColor cursor-pointer transition-all duration-200">
-            <Link to="/contact" onClick={toggleSidebar}>
+            <Link to="/contactUs" onClick={toggleSidebar}>
               Contact Us
             </Link>
           </li>
