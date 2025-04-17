@@ -1,13 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="/logo.ico" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Bella - Furniture Store</title>
-    </head>
-    <body>
-        <div id="root"></div>
-        <script type="module" src="/src/main.jsx"></script>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bella - Furniture Store</title>
+    <meta
+      name="description"
+      content="Bella - Premium furniture store offering a wide selection of high-quality home and office furniture at the best prices"
+    />
+    <meta
+      name="keywords"
+      content="furniture, home furniture, sofa, table, bed, desk, home decor, office furniture"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bellastore.vercel.app/" />
+    <meta property="og:title" content="Bella - Premium Furniture Store" />
+    <meta
+      property="og:description"
+      content="Shop the best home and office furniture with modern designs and premium quality"
+    />
+    <meta
+      property="og:image"
+      content="https://bellastore.vercel.app/images/og-image.jpg"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://bellastore.vercel.app/" />
+    <meta property="twitter:title" content="Bella - Premium Furniture Store" />
+    <meta
+      property="twitter:description"
+      content="Shop the best home and office furniture with modern designs and premium quality"
+    />
+    <meta
+      property="twitter:image"
+      content="https://bellastore.vercel.app/images/twitter-image.jpg"
+    />
+
+    <link rel="canonical" href="https://bellastore.vercel.app/" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FurnitureStore",
+        "name": "Bella Furniture Store",
+        "url": "https://bellastore.vercel.app/",
+        "logo": "https://bellastore.vercel.app/logo.ico",
+        "image": "https://bellastore.vercel.app/images/store-front.jpg",
+        "description": "Premium furniture store offering a wide selection of high-quality home and office furniture at the best prices",
+        "telephone": "+201234567890",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "123 Tahrir Street",
+          "addressLocality": "Cairo",
+          "addressRegion": "Cairo",
+          "postalCode": "11511",
+          "addressCountry": "EG"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "30.0444",
+          "longitude": "31.2357"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
+            "opens": "10:00",
+            "closes": "22:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Sunday",
+            "opens": "12:00",
+            "closes": "20:00"
+          }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/bellafurniture",
+          "https://www.instagram.com/bellafurniture",
+          "https://twitter.com/bellafurniture"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

@@ -1,36 +1,32 @@
-# robots.txt for Bella Store
+# robots.txt for Bella - Furniture Store
 # https://bellastore.vercel.app
 
 User-agent: *
 Allow: /
 
 # منع الزحف إلى صفحات المستخدم الخاصة
-Disallow: /account
-Disallow: /checkout
-Disallow: /cart
 Disallow: /login
 Disallow: /register
-Disallow: /admin
+Disallow: /cart
+Disallow: /checkout
+Disallow: /profileUser
+Disallow: /wishlist
+Disallow: /success
+Disallow: /dashboard/
 Disallow: /api/
-Disallow: /dashboard
 
-# منع الزحف إلى الصفحات التي تحتوي على معلمات البحث
-Disallow: /*?search=
-Disallow: /*?filter=
-Disallow: /*?sort=
-Disallow: /*?page=
-
-# السماح بالزحف إلى الصفحات المهمة
+# السماح بالزحف إلى الصفحات العامة الرئيسية
+Allow: /
 Allow: /products
-Allow: /categories
-Allow: /about
-Allow: /contact
-Allow: /blog
+Allow: /shop
+Allow: /aboutUs
+Allow: /contactUs
+Allow: /products/*
 
-# تحديد موقع ملف Sitemap (إذا كان موجودًا)
+# تحديد موقع ملف Sitemap
 Sitemap: https://bellastore.vercel.app/sitemap.xml
 
-# منع الزحف من روبوتات محددة (مثال)
+# منع الزحف من روبوتات محددة
 User-agent: AdsBot-Google
 Disallow: /checkout
 Disallow: /cart
